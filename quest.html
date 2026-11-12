@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>面试英语闯关</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<style>
+:root{
+  color-scheme: light;
+  --desk:#DCE3EE; --card:#FFFFFF; --rule:#D3DFF2; --rule-strong:#B9C6DB;
+  --margin:#D9473F; --ink:#1C2740; --ink-soft:#56627C; --accent:#2F55C8; --on-accent:#FFFFFF;
+  --good:#22804D; --good-soft:#E3F3EA; --bad-soft:#FBE7E5; --hi:#F6D44A; --shadow:rgba(28,39,64,.35);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Songti SC","SimSun",serif;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --desk:#0E1525; --card:#1A2338; --rule:#25304A; --rule-strong:#34415F;
+    --margin:#F0675D; --ink:#E7ECF6; --ink-soft:#9AA6BF; --accent:#7096F7; --on-accent:#0E1525;
+    --good:#4CC38A; --good-soft:#163628; --bad-soft:#3A1E22; --hi:#E8C53A; --shadow:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --desk:#0E1525; --card:#1A2338; --rule:#25304A; --rule-strong:#34415F;
+  --margin:#F0675D; --ink:#E7ECF6; --ink-soft:#9AA6BF; --accent:#7096F7; --on-accent:#0E1525;
+  --good:#4CC38A; --good-soft:#163628; --bad-soft:#3A1E22; --hi:#E8C53A; --shadow:rgba(0,0,0,.6);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0}
+body{background:var(--desk);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+button:disabled{cursor:default;opacity:.45}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.app{max-width:560px;margin:0 auto;padding:20px 16px 48px}
+[hidden]{display:none !important}
+p{margin:0}
+
+/* Home */
+.hero{padding:8px 4px 20px}
+.rank-name{font-family:var(--serif);font-weight:600;font-size:clamp(36px,10vw,52px);line-height:1.02;letter-spacing:-.015em;margin:0}
+.rank-cn{color:var(--ink-soft);margin-top:8px}
+.ladder{display:flex;gap:4px;margin:18px 0 4px}
+.rung{flex:1;height:8px;border-radius:2px;background:var(--rule-strong)}
+.rung.done{background:var(--accent)}
+.rung.cur{background:linear-gradient(to right,var(--accent) var(--p),var(--rule-strong) var(--p))}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 8px;margin:18px 0 0}
+@media (min-width:520px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats div{margin:0}
+.stats dt{font-size:13px;color:var(--ink-soft)}
+.stats dd{margin:0;font-family:var(--serif);font-size:26px;font-weight:600;font-variant-numeric:lining-nums tabular-nums}
+.quest{display:grid;grid-template-columns:1fr auto;align-items:center;width:100%;text-align:left;background:var(--accent);color:var(--on-accent);border-radius:8px;padding:18px 20px;margin:4px 0 22px;box-shadow:0 12px 26px -16px var(--shadow)}
+.quest-title{font-size:20px;font-weight:700;grid-column:1}
+.quest-sub{font-size:14px;opacity:.88;grid-column:1}
+.quest-go{grid-column:2;grid-row:1 / span 2;font-weight:700;font-size:17px;padding:8px 14px;border-radius:6px;background:rgba(255,255,255,.18)}
+.menu{border-top:1px solid var(--rule-strong)}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;width:100%;text-align:left;padding:15px 4px;border-bottom:1px solid var(--rule-strong)}
+.row-name{font-weight:600;font-size:17px}
+.row-meta{color:var(--ink-soft);font-size:14px;text-align:right}
+.row:hover .row-name{color:var(--accent)}
+.badges{margin-top:26px}
+.badges h2,.section-title{font-size:15px;font-weight:600;color:var(--ink-soft);margin:0 0 10px}
+.badge-list{display:flex;flex-wrap:wrap;gap:8px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--rule-strong);font-size:14px}
+.badge.locked{opacity:.4}
+
+.warn{background:var(--bad-soft);border-left:4px solid var(--margin);padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:14px}
+.hot-tag{color:var(--margin);font-weight:700}
+.script-card .card-body{line-height:32px}
+.script-p{font-family:var(--serif);font-size:18px;line-height:32px;margin-bottom:8px}
+mark{background:var(--hi);color:#1C2740;padding:0 2px;border-radius:2px}
+.big-timer{font-family:var(--serif);font-size:clamp(64px,22vw,110px);font-weight:600;text-align:center;font-variant-numeric:tabular-nums;line-height:1.1;margin:16px 0 8px}
+.skeleton{text-align:center;margin:10px 0 6px;line-height:1}
+.skeleton .chip{border-color:var(--hi);cursor:default}
+.stat-row{background:var(--card);border:1px solid var(--rule-strong);border-radius:8px;padding:12px 14px;margin-bottom:10px}
+.stat-name{font-weight:700}
+.stat-meta{font-size:13px;color:var(--ink-soft)}
+
+/* Sub pages */
+.subhead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.subhead h2{font-size:22px;margin:0;font-family:var(--serif);font-weight:600}
+.back{padding:6px 10px;border:1px solid var(--rule-strong);border-radius:6px;font-size:14px;background:var(--card)}
+.lead{color:var(--ink-soft);margin-bottom:14px}
+.world{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--rule-strong);border-radius:8px;padding:14px;margin-bottom:10px}
+.world:hover{border-color:var(--accent)}
+.w-num{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--accent);text-align:center}
+.w-name{display:block;font-weight:700}
+.w-tip{display:block;font-size:13px;color:var(--ink-soft)}
+.w-bar{display:block;height:5px;background:var(--rule);border-radius:3px;margin-top:8px;overflow:hidden}
+.w-bar i{display:block;height:100%;background:var(--good)}
+.w-meta{font-size:13px;color:var(--ink-soft);text-align:right;line-height:1.4}
+.w-stars{color:var(--hi);font-size:16px;letter-spacing:1px}
+.w-stars-off{color:var(--rule-strong);font-size:16px;letter-spacing:1px}
+
+/* Play */
+.playbar{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.icon-btn{width:36px;height:36px;border-radius:6px;border:1px solid var(--rule-strong);background:var(--card);font-size:16px;flex:none}
+.progress{flex:1;height:10px;background:var(--rule-strong);border-radius:5px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .3s ease}
+.hearts{font-size:16px;letter-spacing:1px;flex:none;color:var(--margin)}
+.timer{font-family:var(--serif);font-size:22px;font-weight:600;min-width:44px;text-align:right;font-variant-numeric:tabular-nums}
+.combo-line{display:flex;justify-content:space-between;font-size:14px;color:var(--ink-soft);min-height:22px;margin:-4px 2px 8px}
+.combo{color:var(--accent);font-weight:700}
+.card{position:relative;background-color:var(--card);border-radius:6px;padding:0 22px 22px;box-shadow:0 1px 0 var(--rule-strong),0 16px 30px -20px var(--shadow);
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--rule) 31px,var(--rule) 32px);background-position:0 48px;background-repeat:no-repeat;background-size:100% calc(100% - 60px)}
+.card::before{content:"";position:absolute;left:0;right:0;top:46px;height:2px;background:var(--margin);opacity:.75}
+.card-head{display:flex;justify-content:space-between;gap:10px;align-items:center;height:46px;font-size:14px;color:var(--ink-soft)}
+.card-head b{color:var(--ink);font-weight:700}
+.card-body{padding-top:12px;line-height:32px;min-height:96px}
+.situ{font-size:16px;color:var(--ink)}
+.situ-small{font-size:14px;color:var(--ink-soft)}
+.say{font-family:var(--serif);font-size:23px;line-height:32px;color:var(--ink)}
+.was{font-family:var(--serif);font-size:19px;color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--margin);text-decoration-thickness:2px}
+.card.enter{animation:enter .28s ease-out}
+@keyframes enter{from{opacity:0;transform:translateY(10px) rotate(-.4deg)}to{opacity:1;transform:none}}
+.card.shake{animation:shake .35s ease}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
+.answers{margin-top:14px}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--rule-strong);border-radius:6px;padding:13px 16px;font-family:var(--serif);font-size:18px;line-height:1.45;margin-bottom:10px}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.is-right{border-color:var(--good);background:var(--good-soft);opacity:1}
+.opt.is-wrong{border-color:var(--margin);background:var(--bad-soft);opacity:1}
+.judge{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.judge .opt{text-align:center;font-family:var(--sans);font-weight:700;font-size:17px;margin:0}
+.slot{min-height:56px;padding:6px 0;border-bottom:2px dashed var(--rule-strong);margin-bottom:12px;line-height:1}
+.pool{line-height:1}
+.slot.is-right{border-bottom-color:var(--good)}
+.slot.is-right .chip{border-color:var(--good);background:var(--good-soft)}
+.slot.is-wrong{border-bottom-color:var(--margin)}
+.slot.is-wrong .chip{border-color:var(--margin);background:var(--bad-soft)}
+.chip{display:inline-block;padding:7px 11px;margin:4px 3px;border-radius:4px;border:1.5px solid var(--rule-strong);background:var(--card);font-family:var(--serif);font-size:18px;line-height:1.2}
+.slot .chip{border-color:var(--accent)}
+.chip.used{visibility:hidden}
+.chip:disabled{opacity:1}
+.order-tools{display:flex;gap:10px;margin-top:12px}
+.btn{padding:11px 16px;border-radius:6px;font-weight:700;border:1.5px solid var(--rule-strong);background:var(--card)}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.wide{width:100%}
+.feedback{margin-top:14px;background:var(--card);border-radius:6px;border-left:5px solid var(--good);padding:14px 16px 16px;animation:rise .22s ease-out}
+.feedback.bad{border-left-color:var(--margin)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.verdict{font-weight:700;font-size:17px;margin-bottom:8px}
+.feedback.good .verdict{color:var(--good)}
+.feedback.bad .verdict{color:var(--margin)}
+.fb-label{font-size:13px;color:var(--ink-soft);margin-top:6px}
+.fb-right{font-family:var(--serif);font-size:20px;line-height:1.45;display:flex;gap:8px;align-items:flex-start}
+.fb-note{font-size:14px;color:var(--ink-soft);margin-top:8px}
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--rule-strong);background:var(--card);font-size:15px;line-height:1}
+.feedback .btn{margin-top:14px}
+.rate{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.rate .btn{padding:11px 6px;font-size:15px}
+
+/* Result */
+.result-head{text-align:center;padding:20px 0 8px}
+.result-head h2{font-family:var(--serif);font-size:34px;margin:0 0 6px;font-weight:600}
+.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin:16px 0 20px}
+.result-stats dt{font-size:13px;color:var(--ink-soft)}
+.result-stats dd{margin:0;font-family:var(--serif);font-size:28px;font-weight:600}
+.rankup{background:var(--hi);color:#1C2740;border-radius:8px;padding:14px 16px;font-weight:700;text-align:center;margin-bottom:16px}
+.entry{background:var(--card);border:1px solid var(--rule-strong);border-radius:6px;padding:12px 14px;margin-bottom:10px}
+.entry .was{font-size:16px}
+.entry .fb-right{font-size:18px}
+.entry-cat{font-size:12px;color:var(--ink-soft)}
+.actions{display:grid;gap:10px;margin-top:18px}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tab{padding:7px 12px;border-radius:999px;border:1px solid var(--rule-strong);background:var(--card);font-size:14px}
+.tab[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.empty{color:var(--ink-soft);padding:24px 4px;text-align:center}
+
+/* Settings */
+.set-group{background:var(--card);border:1px solid var(--rule-strong);border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.set-group h3{font-size:16px;margin:0 0 8px}
+.set-group p{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+textarea{width:100%;min-height:84px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:8px;border-radius:6px;border:1px solid var(--rule-strong);background:var(--desk);color:var(--ink);resize:vertical;margin-bottom:8px}
+.saved{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:22px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--card);padding:10px 16px;border-radius:8px;font-size:15px;max-width:90vw;opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+@media (min-width:600px){.app{padding-top:36px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <main>
+    <section id="v-home" class="view"></section>
+    <section id="v-worlds" class="view" hidden></section>
+    <section id="v-play" class="view" hidden>
+      <div class="playbar">
+        <button class="icon-btn" data-act="quit" aria-label="退出本轮">✕</button>
+        <div class="progress" id="prog"><i id="pfill" style="width:0%"></i></div>
+        <span class="timer" id="timer" hidden></span>
+        <span class="hearts" id="hearts" aria-label="剩余体力"></span>
+      </div>
+      <div class="combo-line"><span id="qcount"></span><span id="combo" class="combo"></span></div>
+      <article class="card" id="card"></article>
+      <div class="answers" id="answers"></div>
+      <div id="feedback"></div>
+    </section>
+    <section id="v-result" class="view" hidden></section>
+    <section id="v-book" class="view" hidden></section>
+    <section id="v-settings" class="view" hidden></section>
+    <section id="v-scripts" class="view" hidden></section>
+    <section id="v-stats" class="view" hidden></section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</div>
+<script>
+var CATS = [{"id":1,"name":"问句骨架","tip":"直接问句补 do / did / is / was；间接问句不倒装"},{"id":2,"name":"中式直译","tip":"didn’t very sure、here has、throughout 这类直译"},{"id":3,"name":"动词＋人＋to do","tip":"expect / encourage sb to do；recommend doing"},{"id":4,"name":"时态与动词形式","tip":"过去的事用过去式；choose not to do"},{"id":5,"name":"词性与名词","tip":"形容词别当动词；feedback、staff 不加 s"},{"id":6,"name":"职场用词","tip":"领导是 manager，评价是 feedback"},{"id":7,"name":"连接词与从句","tip":"although / but 只留一个；从句要有 that / who"},{"id":8,"name":"语气与习惯","tip":"一个确认词；一次只问一个问题"}];
+
+// [类别, 你的原话, 正确说法, 要点, 场景, 干扰项, 是否最顽固, 来源场次]
+var RAW = [
+[1,"Why you choose not processing row 2?","Why did you choose not to process row 2?","直接问句补 did；choose not to do","问候选人：为什么第 2 行选择不处理？","Why did you chose not to process row 2?",0,12],
+[1,"Where this decision come from?","Where did this decision come from?","直接问句补 did","问：这个判断是从哪里来的？","Where does this decision came from?",0,12],
+[1,"Why you chose process?","Why did you choose to process it?","直接问句补 did","问：你为什么选择处理？","Why you did choose to process it?",0,12],
+[1,"How 70% of effectiveness calculated?","How was the 70% calculated?","被动问句补 was","问：这个 70% 是怎么算出来的？","How did the 70% calculated?",0,12],
+[1,"So what the working environment at ByteDance?","What’s the working environment like at ByteDance?","补 is；问“怎么样”用 what’s … like","问：字节的工作氛围怎么样？","How is the working environment like at ByteDance?",0,12],
+[1,"What our clients’ industry?","What industry are our clients in?","补 are","问：你觉得我们的客户是什么行业的？","What industry our clients are in?",0,12],
+[1,"What industry do you think ResourcePro in?","What industry do you think ResourcePro is in?","do you think 后面是陈述语序，别漏 is","问：你觉得 ResourcePro 属于什么行业？","What industry do you think is ResourcePro in?",0,12],
+[1,"How many people in this team?","How many people were on the team?","补 were；on the team","问：当时团队有多少人？","How many people was on the team?",0,12],
+[1,"Or you just get off work?","Or did you just finish work?","补 did","问：你是请了假，还是刚下班？（后半句）","Or are you just finish work?",0,12],
+[1,"What specific challenges when you learned the new platform?","What challenges did you face when you learned the new platform?","缺谓语，补 did you face","问：学新平台时遇到了哪些挑战？","What challenges you faced when you learned the new platform?",0,12],
+[1,"How similarity between your SOP and the test?","How similar is your SOP to the test?","similar 是形容词，补 is","问：你现在的 SOP 和刚才的测试有多相似？","How similar your SOP is to the test?",0,12],
+[1,"You’ll learn what is the typical process looks like.","You’ll learn what the typical process looks like.","间接问句不倒装，只留一个动词","介绍培训：你会学到典型流程是什么样的","You’ll learn what does the typical process look like.",0,12],
+[1,"You’ll see what is our SOP looks like.","You’ll see what our SOP looks like.","间接问句不倒装，只留一个动词","介绍培训：你会了解我们的 SOP 是什么样的","You’ll see how our SOP looks like.",0,12],
+[1,"Share what have you thought on that with me.","Walk me through your thinking.","间接问句不倒装；面试官常用说法","请候选人讲讲自己的思路","Share me what you have thought.",0,12],
+[1,"I wanted to learn that how did you learn.","I’d like to understand how you learned it.","去掉 that 和 did，间接问句用陈述语序","说：我想了解你是怎么学会的","I’d like to understand how did you learn it.",0,12],
+[1,"I’m wondering how was this recognition calculated.","I’m wondering how this recognition was calculated.","间接问句：主语在前，was 在后","说：我想知道这个奖项是怎么算的","I’m wondering how did this recognition calculated.",0,12],
+[1,"Please share your strategy of how did you make sure it was accurate.","Please tell me how you made sure it was accurate.","间接问句去掉 did","请候选人讲讲如何保证准确率","Please tell me how did you make sure it was accurate.",0,12],
+[1,"I’m not sure what is your interview experience.","I’m not sure how you’ve found the interview process so far.","间接问句不倒装","说：不知道你对目前的面试流程感觉如何","I’m not sure how have you found the interview process so far.",0,12],
+[1,"Did you remember your performance requirements?","Do you remember your performance requirements?","问“现在还记得吗”用 Do","问：你还记得当时的绩效要求吗？","Are you remember your performance requirements?",1,12],
+[1,"Since when did you start looking for a new job?","When did you start looking for a new job?","since when 带质疑语气，面试里别用","问：你什么时候开始找工作的？","Since when you started looking for a new job?",0,12],
+[1,"Since when did you decide to leave?","How long have you been thinking about leaving?","since when 带质疑语气","问：你考虑离职多久了？","How long did you think about leaving since?",0,12],
+[1,"If you can be shortlisted, when will be your earliest start date?","If you’re shortlisted, what’s the earliest date you could start?","if 从句用一般现在时；问句语序要对","问：如果进入候选名单，最早什么时候能入职？","If you will be shortlisted, when is your earliest date to start?",0,12],
+[1,"What do you think of “skip” mean?","What do you think “skip” means?","do you think 后面用陈述语序","问：你觉得 skip 是什么意思？","What do you think does “skip” mean?",0,12],
+[1,"What did they offer for you, for the salary?","What salary did they offer you?","offer sb sth","问：他们给你开的薪资是多少？","What salary did they offer to you for?",0,12],
+[1,"How did you make your accuracy result in a very high level?","How did you keep your accuracy so high?","化繁为简","问：你是怎么保持这么高的准确率的？","How did you make your accuracy so highly?",0,12],
+[1,"What made learning curve shorter than expectation?","What made your learning curve shorter than expected?","than expected 是固定说法","问：是什么让你的学习周期比预期短？","What made your learning curve shorter than expect?",0,12],
+[1,"I’d like to check what do you think of this test.","What did you think of the test?","间接问句不倒装；直接问更简单","测试结束，问候选人对测试的感受","I’d like to know what did you think of the test.",1,3],
+[1,"Why insurance industry attracted you that much?","What attracted you to the insurance industry?","问“什么吸引你”用 What attracted you to…","问：保险行业哪里吸引你？","Why the insurance industry attracted you so much?",0,3],
+[1,"Why did you think that you can transfer your skills into insurance industry?","Why do you think your skills will transfer to the insurance industry?","问现在的看法用 do you think；transfer to","问：你为什么觉得自己的技能能用到保险行业？","Why did you think your skills can transfer into insurance industry?",0,3],
+[1,"How many team members in your team need to handle that volume?","How many people on your team handled that volume?","补谓语；讲过去用过去式","追问：当时团队里有多少人处理这个量？","How many people in your team needed handle that volume?",0,3],
+[1,"Did you remember, how much was the volume at that time?","Do you remember what the volume was at that time?","Do you remember + 陈述语序","追问：你还记得当时的量是多少吗？","Did you remember how much was the volume at that time?",0,3],
+[1,"Why you could accept a lower one than before?","Why would you accept a lower salary than before?","补 would；说清楚是 salary","问：为什么能接受比以前低的薪资？","Why you would accept a lower salary than before?",0,3],
+[1,"Were there anything about your major you didn’t like?","Was there anything about your major you didn’t like?","anything 是单数，用 was","问：你的专业有没有让你不喜欢的地方？","Were there anything about your major that you don’t like?",0,3],
+[1,"So, which or what platform did you review?","Which platform did you review?","which 和 what 只用一个","问：你审核的是哪个平台？","Which or what platforms did you reviewed?",0,3],
+[1,"Are there any tasks that you didn’t like your last role?","Were there any tasks you didn’t like in your last role?","过去的岗位用 were；补 in","问：上一份工作有没有不喜欢的任务？","Are there any tasks that you didn’t like in your last role?",0,3],
+[1,"Did you join other interviews for some other companies?","Are you interviewing with any other companies?","参加面试 = interview with a company","问：你还在面其他公司吗？","Did you join any interviews of other companies?",0,3],
+[1,"What was your shift schedule from when to when?","What were your shift hours?","“从几点到几点”不要直译","问：你的班次是几点到几点？","Your shift was from when until when?",0,3],
+[1,"How did you make that?","How did you manage that?","“你是怎么做到的”= How did you manage that?","追问：夜班你是怎么适应的？","How did you do it make?",0,3],
+[1,"What was your feeling at that time?","How did you feel at the time?","问感受用 How did you feel","追问：你当时什么感受？","How was your feeling at that time?",0,3],
+[1,"How did you handle and what specific steps did you do?","How did you handle it, and what specific steps did you take?","take steps；handle 后面要有宾语","追问：你是怎么处理的，具体做了哪些步骤？","How did you handle and what specific steps you did?",0,3],
+[1,"Did you apply it for yourself by yourself, or was it assigned?","Did you ask for it yourself, or did the company assign it to you?","简化；ask for it","问：夜班是你自己申请的，还是公司安排的？","Did you apply it by yourself for yourself, or assigned?",0,3],
+[1,"Okay, do they cause any impact to you?","Did that affect you?","讲过去用 did；impact on，不是 impact to","追问：这些对你有影响吗？","Did that cause any impact to you?",0,3],
+[1,"What is your current salary status, and what is your expectation?","What was your last salary, and what are your salary expectations?","salary status 不是英文说法","问：之前薪资多少，期望多少？","What is your salary status and your expectation salary?",0,3],
+[2,"You didn’t very sure about these two blanks.","You weren’t sure about these two blanks.","didn’t 后面不能接形容词","确认：你对这两个空不太确定，对吧","You didn’t sure about these two blanks.",0,12],
+[2,"I still didn’t very clear how that works.","It’s still not clear to me how that works.","didn’t 后面不能接形容词","说：我还是不太清楚这是怎么做到的","I’m still not clear how does that work.",0,12],
+[2,"Here has no stupid question.","There’s no such thing as a stupid question.","“这里有”要用 there is","介绍文化：这里没有愚蠢的问题","Here is no stupid question.",0,12],
+[2,"Why here has actions?","Why are there actions here?","“这里有”要用 there are","问：为什么这里有后续动作？","Why there are actions here?",0,12],
+[2,"Throughout the instruction, you will understand the rules.","The instructions explain the rules.","throughout 是“自始至终”，不是“通过”","介绍测试：说明部分会告诉你规则","Throughout reading the instructions, you’ll understand the rules.",0,12],
+[2,"I will send link throughout our chat box.","I’ll send you the link in the chat.","throughout 不表示“通过”","说：我会在聊天框里发链接给你","I’ll send you the link throughout the chat.",0,12],
+[2,"The format is almost the same with the test.","The format is almost the same as the test.","the same as","说：格式和测试几乎一样","The format is almost same to the test.",0,12],
+[2,"Now is 10:03.","It’s 10:03 now.","说时间用 it’s","说：现在是 10:03","Now it is at 10:03.",0,12],
+[2,"I think it’s very easy to be understood.","I think it’s easy to understand.","不用被动","说：我觉得这很容易理解","I think it’s easy to be understand.",0,12],
+[2,"Have you ever met a situation that you couldn’t get an answer?","Have you ever run into a situation where you couldn’t get an answer?","run into a situation where…","问：你有没有遇到过得不到答案的情况？","Have you ever met with a situation which you couldn’t get an answer?",1,12],
+[2,"Even you asked your manager, you still couldn’t get it?","Even after you asked your manager, you still couldn’t get it?","even 后面接从句要用 even after / even though","追问：即使问了经理，还是没得到答案？","Even you had asked your manager, you still couldn’t get it?",0,12],
+[2,"You will catch up by your own.","You’ll have to catch up on your own.","on your own","提醒：你得自己补进度","You’ll have to catch up by yourself own.",1,12],
+[2,"Learn Excel from the scratch.","Learn Excel from scratch.","from scratch 没有 the","说：从零开始学 Excel","Learn Excel from a scratch.",0,12],
+[2,"Put yourself into the best status.","Make sure you’re at your best.","status 不是“状态”","建议：培训期间要保持最佳状态","Keep yourself in the best status.",0,12],
+[2,"You can expose yourself in a lot of tasks.","You get exposure to a lot of different tasks.","get exposure to","复述：这份工作让你接触到很多任务","You can expose to a lot of tasks.",0,12],
+[2,"How did you explore this solution?","How did you come up with this solution?","come up with = 想出","问：你是怎么想出这个方案的？","How did you come out this solution?",0,12],
+[2,"When was your first time to earn this recognition?","When did you first earn this recognition?","“第一次”用 first + 动词","问：你第一次获得这个认可是什么时候？","When was the first time you earn this recognition?",0,12],
+[2,"Walk me through a mistake you ever made.","Walk me through a mistake you’ve made.","ever 用于问句和否定句","请候选人讲一次犯过的错","Walk me through a mistake you have ever made it.",0,12],
+[2,"How can those actions result to high accuracy?","How do those actions result in high accuracy?","result in","追问：这些做法怎么带来高准确率？","How do those actions result for high accuracy?",0,12],
+[2,"We shorten it as NHB.","We call it NHB for short.","for short","介绍：我们简称它 NHB","We short it as NHB.",0,12],
+[2,"We’ll reach out back to you.","We’ll get back to you.","get back to sb","收尾：我们会再联系你","We’ll reach back you.",0,12],
+[2,"Yeah, I may answer your question.","I hope that answers your question.","“希望回答了你的问题”","回答完候选人的问题后收尾","I hope I answered to your question.",0,12],
+[2,"We say, there is no perfect people.","As they say, nobody’s perfect.","固定说法","引入话题：人无完人","As we say, there are no perfect person.",1,12],
+[2,"You don’t need to care about the professional terms.","Don’t worry about the technical terms.","“不用在意”= don’t worry about","介绍测试：不用在意专业术语","You don’t need to mind about the professional terms.",0,12],
+[2,"You’ll get the answer the other day.","You’ll get an answer the next day.","the other day 是“前几天”，第二天是 the next day","介绍中班：留言后第二天会有人回复你","You’ll get the answer the another day.",0,3],
+[2,"From 3 PM to 0 AM.","From 3 PM to midnight.","英文没有 0 AM，说 midnight 或 12 AM","介绍中班时间：下午 3 点到半夜 12 点","From 3 PM to 0 o’clock.",0,3],
+[2,"You didn’t do jobs related to your major up to graduation.","You haven’t worked in jobs related to your major since graduation.","up to graduation 是“直到毕业”；毕业以后用 since","追问：毕业后你没做过和专业相关的工作","You didn’t work jobs related to your major after graduation up to now.",0,3],
+[2,"Share with me a situation that there was no one around you to ask help.","Tell me about a time when there was no one around to ask for help.","a time when / a situation where；ask for help","请候选人讲一次身边没人可以求助的经历","Share with me a situation which no one around you to ask for help.",0,3],
+[2,"I also want to get a case from you about learning capability.","I’d also like to hear an example of how you learn.","“要一个案例”不要直译成 get a case","引出学习能力的问题","I also want you to give me a case of learning capability.",0,3],
+[2,"Sorry, I don’t tell you clearly. Let me ask this way.","Sorry, I wasn’t clear. Let me put it another way.","Let me put it another way","候选人没答到点上，你换个问法","Sorry, I didn’t tell you clear. Let me ask by this way.",0,3],
+[2,"That’s three times for the regular volume.","That’s three times the regular volume.","three times the + 名词","复述：这是平时量的三倍","That’s three times of the regular volume.",0,3],
+[2,"In the story, you mentioned your volume could go up to 2,000.","Earlier, you mentioned your volume could go up to 2,000.","回指对方前面说过的话用 Earlier","引用候选人前面说过的话","In the story before, you mentioned your volume could go up to 2,000.",0,3],
+[2,"I didn’t see any hesitation during your expression.","I didn’t notice any hesitation when you were speaking.","“表达”不要直译成 expression","给候选人反馈：你表达时没有犹豫","I didn’t see any hesitate during your expressing.",0,3],
+[2,"Make judgment based the source document.","Make your judgment based on the source document.","based on，on 不能省","介绍测试：根据源文件做判断","Make judgment base on the source document.",0,3],
+[2,"All of your responses should be referred to a specific SOP.","Every answer should be based on a specific SOP.","be based on；refer to 不用被动","强调：每个答案都要基于具体的 SOP","All of your responses should refer from a specific SOP.",0,3],
+[2,"Quickly read the SOP to have a sense of what it including.","Skim the SOP to get a sense of what it covers.","what it covers，动词要变形","建议：先快速浏览 SOP 了解大概内容","Quickly read the SOP to have a sense what it is include.",0,3],
+[2,"HBC is short term for New Hire Bootcamp.","NHB is short for New Hire Bootcamp.","X is short for Y","解释缩写","NHB is shorten for New Hire Bootcamp.",0,3],
+[2,"Pretty much of the time, you need to work alone.","Most of the time, you’ll be working on your own.","most of the time","介绍中班：大部分时间独立工作","Pretty much time, you need to work by alone.",0,3],
+[2,"So why… I’m still wondering why insurance only.","So why insurance in particular?","“为什么偏偏是”用 in particular","追问：为什么非得是保险？","So why only insurance particular?",0,3],
+[3,"We expect our employees can meet 100% accuracy.","We expect our employees to achieve 100% accuracy.","expect sb to do","说：我们期望员工达到 100% 准确率","We expect our employees achieve 100% accuracy.",1,12],
+[3,"We expect our new joiners can complete tasks on time.","We expect our new joiners to complete tasks on time.","expect sb to do","说：我们期望新人按时完成任务","We expect that our new joiners to complete tasks on time.",0,12],
+[3,"We encourage everyone asks questions.","We encourage everyone to ask questions.","encourage sb to do","介绍文化：我们鼓励大家提问","We encourage everyone asking questions.",0,12],
+[3,"I highly recommend you to figure out the logic.","I’d recommend figuring out the logic first.","recommend doing，不接 sb to do","建议：先把逻辑弄清楚","I’d recommend to figure out the logic first.",1,12],
+[3,"We highly recommend that do not ask for leave.","We strongly recommend that you don’t take any leave.","recommend that you…","建议：培训期间不要请假","We strongly recommend you not to take any leave.",1,12],
+[3,"Explaining you to take more responsibilities but remain the same salary.","Expecting you to take on more responsibility at the same salary.","expect sb to do；take on responsibility","复述：期望你承担更多责任但薪资不变","Expecting you take more responsibility with remaining the same salary.",0,12],
+[3,"A trainer who will train you the specific tasks.","A trainer who will train you on specific tasks.","train sb on sth","介绍：会有专门的带教老师教你具体任务","A trainer who will train for you the specific tasks.",0,12],
+[3,"The trainer will audit you the task result.","The trainer will review your work.","review your work","介绍：带教老师会检查你的工作","The trainer will audit your task result for you.",0,12],
+[3,"We expect our candidates have quick learning capability.","We expect candidates to learn quickly.","expect sb to do","介绍高级岗位：期望候选人学得快","We expect candidates learning quickly.",0,3],
+[3,"We very encourage, especially for new joiners, to ask questions.","We strongly encourage new joiners to ask questions.","encourage sb to do，不用 for","介绍文化：特别鼓励新人提问","We encourage especially for new joiners to ask questions.",0,3],
+[3,"I recommend you to understand the instructions first.","I’d recommend reading the instructions first.","recommend doing","建议：先看懂说明","I’d recommend to read the instructions first.",0,3],
+[3,"I would like to recommend you to the premier service.","I’d like to recommend you for the premier role.","recommend sb for a role","告诉候选人你会推荐她去高级岗位","I’d like to recommend you to be the premier role.",0,3],
+[3,"I would like to move your interview process to the last round.","I’d like to move you on to the final round.","move sb on to the next round","告诉候选人进入下一轮","I’d like to move your interview to last round process.",0,3],
+[4,"You choose N, right?","You chose N, right?","已经发生用过去式 chose","确认：你选了 N，对吧","You choosed N, right?",0,12],
+[4,"You have already choose not to process.","You’ve already chosen not to process it.","have + 过去分词 chosen","说：你已经选择了不处理","You’ve already chose not to process it.",0,12],
+[4,"You chose not process row 4.","You chose not to process row 4.","choose not to do","说：你选择不处理第 4 行","You chose to not processing row 4.",0,12],
+[4,"You had worked there for more than six years.","You worked there for more than six years.","没有更早的参照点，用一般过去时","说：你在那里工作了六年多","You have worked there for more than six years ago.",0,12],
+[4,"All the answers have to based on the SOP.","All the answers have to be based on the SOP.","be based on","强调：所有答案都必须基于 SOP","All the answers have to base on the SOP.",0,12],
+[4,"Do you receive that?","Did you get it?","刚发生的事用过去式","问：链接收到了吗？","Do you got it?",0,12],
+[4,"How do you handle that?","How did you handle it?","讲过去的事用 did","追问候选人过去的经历：你当时是怎么处理的？","How had you handled it?",0,12],
+[4,"You’re worried about disturbing your manager, then you ask someone else.","You were worried about disturbing your manager, so you asked someone else.","整句保持过去时","复述：你当时怕打扰经理，所以问了别人","You were worried about disturb your manager, so you asked someone else.",0,12],
+[4,"Even in your first month, you are in training, you earn the recognition.","Even in your first month, while you were still in training, you earned it.","整句保持过去时","追问：第一个月还在培训期，你就拿到认可了？","Even in your first month, when you are still in training, you earned it.",0,12],
+[4,"If you can be shortlisted, you will get into the offer stage.","If you’re shortlisted, you’ll move on to the offer stage.","if 从句用一般现在时","收尾：如果进入候选名单，就会进入 offer 阶段","If you will be shortlisted, you’ll move on to the offer stage.",1,12],
+[4,"If there was no retrenchment, would you have stayed?","If there hadn’t been a retrenchment, would you have stayed?","对过去的假设：If + had done, would have done","问：如果没有裁员，你会留下吗？","If there is no retrenchment, would you have stayed?",0,3],
+[4,"I’m not sure whether Winnie inform you.","I’m not sure whether Winnie told you.","讲过去发生的事用过去式","说：不知道 Winnie 有没有告诉过你","I’m not sure whether Winnie has inform you.",0,3],
+[4,"Your quality has already fall into the standard.","Your quality had already fallen below the standard.","had fallen；低于标准 = below the standard","复述：那时你的质量已经低于标准了","Your quality has already fell below the standard.",0,3],
+[4,"What happened after you’re sending out your notes?","What happened after you sent out your notes?","讲过去用过去式","追问：你发出笔记之后发生了什么？","What happened after you have sent out your notes?",0,3],
+[4,"After you can fully train, you will transfer to the middle shift.","Once you’re fully trained, you’ll move to the middle shift.","被培训 = be trained","介绍：培训完成后转到中班","After you can be fully trained, you will transfer middle shift.",0,3],
+[4,"Everyone make mistakes.","Everyone makes mistakes.","everyone 是单数，动词加 s","引入失误问题","Everyone are making mistakes.",0,3],
+[5,"You need to familiar with Excel.","You need to be familiar with Excel.","familiar 是形容词，要加 be","说：你需要熟悉 Excel","You need to familiarize with Excel.",0,12],
+[5,"We have to take responsible for our candidates.","We have to take responsibility for our candidates.","take responsibility for","说：我们也要对候选人负责","We have to be responsibility for our candidates.",0,12],
+[5,"It’s very challenge.","It’s very challenging.","形容词 challenging","说：那会非常有挑战","It’s very challenged.",0,12],
+[5,"We very encourage our staff to ask questions.","We strongly encourage our staff to ask questions.","very 不修饰动词","说：我们非常鼓励员工提问","We encourage very much our staff to ask questions.",1,12],
+[5,"Someone who is very detailed driven.","Someone who is very detail-oriented.","固定说法 detail-oriented","说：注重细节的人","Someone who is very detail-driving.",0,12],
+[5,"Meet 100% of the accuracy result.","Achieve 100% accuracy.","accuracy 本身就是“准确率”","说：达到 100% 准确率","Achieve 100% of accuracy rate result.",1,12],
+[5,"Why do you think that is a critical feedback?","Why do you see that as critical feedback?","feedback 不可数，不加 a","追问：你为什么认为这是批评性反馈？","Why do you see that as a critical feedbacks?",0,12],
+[5,"We encourage our staffs.","We encourage our staff.","staff 是集合名词，不加 s","说：我们鼓励员工","We encourage our stuffs.",0,12],
+[5,"We respect each individuals.","We respect every individual.","each / every + 单数","介绍文化：我们尊重每个人","We respect every individuals.",0,12],
+[5,"Different state has different policies.","Different states have different policies.","复数主语配 have","说：不同的州有不同的政策","Different states has different policies.",0,12],
+[5,"The part one is a 30 minutes test.","Part one is a 30-minute test.","编号前不加 the；30-minute 作定语不加 s","介绍流程：第一部分是 30 分钟的测试","The part one is a 30-minutes test.",1,12],
+[5,"This job is a entry level.","This is an entry-level role.","an + 元音开头；entry-level 作定语","说：这是一个入门级岗位","This is a entry-level role.",0,12],
+[5,"Within one and a half year.","Within a year and a half.","也可以说 within 18 months","说：一年半之内","Within one and half year.",0,12],
+[5,"We have two offices building.","We have two office buildings.","复数加在中心词上","说：我们有两栋办公楼","We have two offices buildings.",0,12],
+[5,"You need fundamental functional features knowledge on Excel.","You need basic Excel skills.","化繁为简","说：你需要基础的 Excel 技能","You need Excel basic skill knowledges.",0,12],
+[5,"You can independent to handle the job.","You can handle the work independently.","independent 是形容词，不能当动词","说：你能独立处理工作","You can independently to handle the job.",0,3],
+[5,"You didn’t get the exactly meaning of the new procedure.","You didn’t get the exact meaning of the new procedure.","修饰名词用形容词 exact","复述：你没理解新流程的确切意思","You didn’t got the exact meaning of the new procedure.",0,3],
+[5,"The complex of the premier role is higher.","The premier role is more complex.","complex 是形容词","说：高级岗位的复杂度更高","The complexity of premier role is more complex.",0,3],
+[5,"Detailed orientation and basic communication skill.","Attention to detail and basic communication skills.","attention to detail；skills 用复数","说：注重细节和基本沟通能力","Detailed-oriented and basic communications skill.",0,3],
+[5,"We have two kind of roles.","We have two kinds of roles.","two kinds of","介绍：我们有两种岗位","We have two kind of role.",0,3],
+[5,"Three or four months training in regular shift.","Three or four months of training on the regular shift.","months of training；on a shift","介绍：先在常规班培训三四个月","Three or four month training in the regular shift.",0,3],
+[5,"Because a lot of open question.","Because there are a lot of open-ended questions.","a lot of + 复数；补 there are","介绍下一轮测评","Because a lot of open-ended question.",0,3],
+[6,"I come from ResourcePro Talent Acquisition.","I’m from the Talent Acquisition team at ResourcePro.","come from 偏指籍贯","开场自我介绍","I come from the Talent Acquisition of ResourcePro.",0,12],
+[6,"Your first formal job.","Your first full-time job.","正式工作 = full-time job","说：你的第一份正式工作","Your first official job.",0,12],
+[6,"What feedback did you get from your leader?","What feedback did you get from your manager?","领导 = manager / boss","问：你从领导那里得到过什么反馈？","What feedbacks did you get from your manager?",1,12],
+[6,"Did you receive any comment from your boss?","Did you get any feedback from your manager?","评价 = feedback","问：你的上级给过你什么评价吗？","Did you get any comments of your manager?",1,12],
+[6,"What is your current paycheck?","What’s your current salary?","paycheck 指工资单","问：你现在的薪资是多少？","How much is your current salary pay?",0,12],
+[6,"What is your minimum expectation for the next role?","What’s the minimum salary you’d accept?","说清楚是薪资","问：你能接受的最低薪资是多少？","What’s your lowest expectation salary?",0,12],
+[6,"Share more about your leaving reasons.","Tell me more about your reasons for leaving.","离职原因 = reasons for leaving","请候选人多讲讲离职原因","Tell me more about your leave reasons.",0,12],
+[6,"Close this table sheet.","Close the spreadsheet.","表格 = spreadsheet / sheet","说：把这张表格关掉","Close this excel table sheet.",1,12],
+[6,"I will share the access with you.","I’ll give you access.","give sb access","说：我会给你开权限","I’ll share you the access.",0,12],
+[6,"Another run interview from our business department.","Another round of interviews with the business team.","a round of interviews","说：还有一轮业务部门的面试","Another interview round from business department.",1,12],
+[6,"The leaders will provide the corresponding support.","Your manager will give you the support you need.","corresponding 不要硬译“相应的”","说：领导会提供相应的支持","Your leader will provide you the corresponding supports.",0,12],
+[6,"During your training progress.","During your training period.","progress 是“进度”","说：在你培训期间","During your training process period.",1,12],
+[6,"What was that story’s background?","Can you give me some context?","更自然的追问","追问：这件事的背景是什么？","Can you give me some contexts of the story?",0,12],
+[6,"Have you got any notice on that?","Have you been told anything about it?","notice 偏正式通知","问：公司有没有通知你们什么？","Have you been noticed anything about it?",0,12],
+[6,"Did you open the table?","Did you open the sheet?","表格 = sheet / spreadsheet","确认候选人打开了链接","Did you open the excel table?",0,3],
+[6,"You worked in night shift in your last role, right?","You worked night shifts in your last role, right?","work night shifts / be on the night shift","确认：上一份工作上夜班","You worked at night shift in your last role, right?",0,3],
+[6,"Now we are opening two rows.","We have two open roles right now.","岗位 = role；在招的岗位 = open roles","介绍：现在有两个岗位在招","Now we are opening two positions roles.",0,3],
+[6,"Our training progress.","Our training process.","progress 是进度，process 是流程","介绍：我们的培训流程","Our training progressing.",0,3],
+[6,"You will get into a three week standard training.","You’ll start with a three-week standardized training program.","three-week 作定语；training program","介绍入职培训","You will get into three weeks standard training.",0,3],
+[6,"Learn by yourself, by our relearning system.","Learn on your own through our e-learning system.","通过系统学习 = through the system","介绍培训方式","Learn by yourself by e-learning system.",0,3],
+[7,"Although it changes often, but our SOP rarely changes.","Although yours changes often, ours rarely does.","although 和 but 只能留一个","对比：虽然你们的 SOP 常变，但我们的很少变","Although yours changes often, but ours rarely does.",0,12],
+[7,"The reason we grow fast is because we have clear SLAs.","The reason we’ve grown so fast is that we have clear SLAs.","the reason … is that","说：我们发展快的原因是 SLA 很清晰","The reason why we’ve grown so fast is because of we have clear SLAs.",0,12],
+[7,"Because of the high engagement, that’s why we can deliver.","Because our people are highly engaged, we can deliver great service.","because 和 that’s why 二选一","说：因为员工投入度高，所以能提供好服务","Because our people are highly engaged, so we can deliver great service.",0,12],
+[7,"We’re not just expect accuracy, but also we expect efficiency.","We don’t just expect accuracy; we also expect efficiency.","补 don’t；not just … also","说：我们不只要求准确，还要求效率","We not just expect accuracy, but also we expect efficiency.",0,12],
+[7,"Even though we’re new in Malaysia. We already have 300 staff.","Even though we’re new in Malaysia, we already have 300 staff.","从句不能单独成句","说：虽然我们在马来西亚是新公司，但已有 300 名员工","Even though we’re new in Malaysia, but we already have 300 staff.",0,12],
+[7,"Everyone, even though the new joiners, can learn.","Everyone, even new joiners, can learn quickly.","even 就够了","说：每个人，包括新人，都能很快上手","Everyone, even if new joiners, can learn quickly.",0,12],
+[7,"So, in a world, you don’t need advanced skills.","In short, you don’t need advanced Excel skills, but you do need the basics.","in short / in a word","总结：不需要高级技能，但基础要有","In a world, you don’t need advanced Excel skills, but basics you need.",0,12],
+[7,"There are a lot of other industries can meet this.","There are a lot of other industries that also require this.","There are … that …，从句要有 that","追问：很多行业也需要合规和读文件","There are a lot of other industries also can meet this.",0,3],
+[7,"You also have remote trainer based in China, to have recap sessions with you.","You’ll also have a remote trainer in China who runs recap sessions with you.","用 who 引出从句；trainer 前加 a","介绍：会有中国的远程培训师给你做复盘","You’ll also have remote trainer in China, he runs recap sessions with you.",0,3],
+[7,"An example when you had to learn something new, it turned out to be harder.","An example of when you had to learn something new that turned out to be harder than expected.","用 that 连接，不要用逗号硬接两个句子","请候选人讲学习新东西比预期难的经历","An example when you had to learn something new, and it turned out harder.",0,3],
+[7,"For the regular role, the one who has good learning ability, it’s good enough.","For the regular role, someone with good learning ability will do well.","不要“话题＋it”的中文结构","介绍常规岗位的要求","For the regular role, the one with good learning ability, he is good enough.",0,3],
+[7,"The one is a regular role, and another one is a premier role.","One is a regular role, and the other is a premier role.","两个里的“一个…另一个”= one … the other","介绍两种岗位","The one is a regular role, and the another is a premier role.",0,3],
+[7,"The training, it won’t delay for each individual.","The training won’t be paused for any one person.","去掉重复主语 it；被动 be paused","提醒：集体培训不会因为个人请假暂停","The training it won’t delay for anyone individual.",0,3],
+[8,"Okay, okay, alright.","Got it.","一个确认词就够","候选人回答完，你表示收到","Okay, alright, got it, good.",1,12],
+[8,"Am I clear?","Does that make sense?","Am I clear 听起来居高临下","讲完测试说明，确认对方听懂","Do you clear?",0,12],
+[8,"Share more background with me.","Could you give me a bit more background?","祈使句改成请求更礼貌","请候选人补充背景","Give me more background now.",0,12],
+[8,"Share specific steps with me and actions with me.","Walk me through the specific steps you took.","面试官常用说法","请候选人讲具体步骤","Share me the specific steps and actions.",0,12],
+[8,"I’ll share more about this with me.","Tell me more about that.","固定说法","请候选人多讲一点","Share more this to me.",0,12],
+[8,"Or it is a clear decision, or are you just exploring, or just looking around?","Have you decided to leave, or are you just exploring?","一次只问一个，最多二选一","问：是已经决定离职，还是在看机会？","Is it a decision or exploring or looking around or what?",0,12],
+[8,"Did you have regular KPI reviews, like monthly or quarterly or half-year review by your leader?","Did your manager review your KPIs regularly?","先问一个点，等回答再追问频率","问：领导会定期做 KPI 评估吗？","Did your leader do monthly, quarterly, half-year KPI review regularly or not?",0,12],
+[8,"But you didn’t answer my question.","I don’t think that quite answers my question. Let me rephrase.","更礼貌，同时给台阶","候选人答偏了，你要拉回","You are not answering my question at all.",0,12],
+[8,"Okay, I think we are running out of time.","Okay, time’s up.","running out = 快用完，时间已到要说 time’s up","测试时间已经到了，你宣布结束","Okay, time is running out already finished.",0,12],
+[8,"Let me make sure I understand your question was…","Let me make sure I understand. Your question is…","拆成两句","确认候选人的问题","Let me make sure understand your question was…",0,12],
+[8,"I’d like to pause here if you have any questions.","Let me pause here. Any questions so far?","拆成两句","讲完说明，停下来问有没有问题","I’d like to pause here if any question.",0,12],
+[8,"Okay, you can get it started, good luck.","You can start now. Good luck!","get started，不用 get it started","宣布开始测试","You can get it start now, good luck.",1,12],
+[8,"Now trying to type something so that I can understand whether you can edit.","Could you type something in any cell? I just want to check you can edit the sheet.","understand 改成 check","请候选人测试编辑权限","Now try typing something so I can understand you can edit.",1,12],
+[8,"Sorry, let me understand how difficult it was.","I’d like to get a sense of how difficult it was.","更自然的追问","追问：想了解当时有多难","Sorry, let me understanding how difficult was it.",0,12],
+[8,"Alright, okay, good luck.","Good luck!","一个词就够","宣布开始测试","Alright, okay, so good luck, okay.",0,3],
+[8,"Before we get it started, I will share today’s process with you beforehand.","Before we start, let me walk you through today’s process.","get started；before 和 beforehand 重复","开场：介绍流程","Before we get it started, I will share the process beforehand before.",0,3],
+[8,"So just share with you how to read the SOP.","That’s how to read the SOP.","讲完一段用一句话小结","讲完 SOP 结构后小结","So just sharing to you how to read SOP.",0,3],
+[8,"Give you a reminder.","Here’s a tip.","更自然的提醒开场","给候选人一个做题建议","Give you one reminding.",0,3],
+[8,"Okay, Natalia, have… have no more questions?","Okay, Natalia, any more questions?","收尾确认","问候选人还有没有问题","Okay, Natalia, have no more question?",0,3],
+[8,"Your main task is based on SOP, you will have your own judgment and filling in all these blanks.","Your main task is to fill in all these blanks, based on the SOP and the source document.","先说任务，再说依据，一句话说完","介绍测试的主要任务","Your main task is based on the SOP and filling these blanks by your judgment.",0,3]
+];
+
+// [编号, 标题, 时长, 是否4/3/2, 段落]
+var SCRIPTS = [["C1","开场","约 40 秒",false,["Hi, [name]. Good afternoon. I'm Thomas from the Talent Acquisition team at ResourcePro. Thanks for making time for today's interview. **Before we start**, let me walk you through the process. There are **two parts**. **Part one** is a 30-minute test, and **part two** is a 30-minute conversation about your background. The whole interview will take about 60 to 70 minutes. **Does that work for you?**"]],["C2","测试说明","约 90 秒",false,["This is the test sheet. I'll give you access in a moment. **There are five parts.**","**Part one** is the instructions. They explain the requirements and rules, so please read them carefully.","**Part two** is the source document. All the information you need is in here.","**Part three** is the SOP, which is the set of rules you'll follow.","**Part four** is the answer table. Your main task is to fill in all the blanks here, based on the SOP and the source document.","**Part five** is an example. The example source document has almost the same format as the test, and the SOP is the same. **Before you fill in anything**, I'd recommend spending a few minutes figuring out why the example answers are correct. Don't worry about the technical terms. **What matters is the logic.**","Let me pause here. Any questions so far?"]],["C3","公司介绍","目标 2 分钟内讲完",true,["**Even though we're new in Malaysia**, we've grown fast. We set up our Malaysia center about a year ago, and we already have around 300 staff in two offices in the KLCC area. **Globally**, we have about 10,000 people in Malaysia, China, India, the Philippines and the US.","**The reason we've grown so fast is that** we have clear SLAs with our clients and a well-structured training program for our people. That means new joiners can get up to speed quickly.","**In terms of culture**, we respect every individual. Even our most senior leaders don't have private offices; everyone sits and works together. We strongly encourage new joiners to ask questions. **There's no such thing as a stupid question.**","**In terms of career growth**, the path is clear: from entry level to analyst, specialist, senior specialist, team lead, supervisor, manager and beyond. We have a fair promotion system. **As long as you meet the benchmark** for the next level, you move up, and your manager will give you the support you need. On average, most people move from Level 1 to Level 2 within about 18 months."]],["C4","培训介绍","目标 90 秒内讲完",true,["**Right after you join**, you'll do a three-week structured training program called New Hire Bootcamp, or NHB for short. You'll learn how insurance works in the US, what our SOPs look like and how to read them.","**Most of the time** you'll learn on your own through our e-learning system, and a remote trainer in China will run recap sessions with you every day to check your progress, answer your questions and review your mistakes with you.","**From day 3 to day 15**, you'll do a short test every day, and **we expect new joiners to reach** over 95% accuracy. Many people who joined us from other BPO companies say our SOPs are harder than what they're used to, **because** insurance rules differ from state to state.","**So my advice is**: be at your best during training, follow the trainer's guidance, ask questions, and double-check your answers before you submit. **We strongly recommend that you don't take any leave** during those three weeks, because it's group training and it's very hard to catch up on your own.","**After bootcamp**, you'll join your team and have a dedicated trainer who will train you on real client tasks and review your work until you can handle it independently."]],["C5","回答“优秀与普通的区别”并收尾","目标 60 秒内讲完",true,["**Let me make sure I understand.** Your question is about the difference between top performers and average performers, right?","I'd say **two things: accuracy and efficiency.** We expect everyone to achieve 100% accuracy, and as you saw in the test, accuracy is crucial. **We don't just expect accuracy; we also expect** people to complete tasks within the expected timeframe.","**What drives those two?** First, learning ability. Second, attention to detail. People who are detail-oriented tend to achieve higher accuracy. **I hope that answers your question.**","That covers everything on my end. We'll get back to you by email within three working days. Thanks again for your time, and have a great day."]],["C6","介绍两种岗位与中班","目标 90 秒内讲完",true,["We have **two open roles** right now: a regular role and a premier role. **The main difference is complexity.** Premier tasks are more complex, so we expect premier candidates to learn quickly, communicate well and take strong ownership. For the regular role, someone with good learning ability, attention to detail and basic communication skills will do well.","**For you, I'd like to recommend the premier role.** I'm not sure whether Winnie told you, but it's on the middle shift, which is similar to your last schedule: **3 PM to midnight** during US daylight saving time, and 4 PM to 1 AM in winter. We need that overlap with our US clients to give real-time support.","**Most of the work** is completing tasks independently based on the SOP. **A small part** is real-time service, like answering client questions. **Before you move to the middle shift**, you'll train on the regular day shift, 8 AM to 5 PM, for three or four months. Once you're fully trained and can handle the work independently, you'll move to the middle shift. Most of the time you'll be working on your own, but you can leave a message for your trainer or team lead and get an answer **the next day**."]],["C7","候选人请你给面试反馈","约 40 秒",false,["Thanks for asking. **I'm not scoring how polished you are.** As long as a candidate understands my questions and gives specific answers, that's fine. **What I'm assessing** is how well your background and skills match the role. You came across as confident, and I didn't notice any hesitation when you were speaking, so **you don't need to worry too much about it.**"]],["C8","介绍下一轮流程","约 45 秒",true,["**This isn't the final round**, and I'd like to move you on to the final round. **Before that**, you'll complete another assessment. You'll have more time for it, because there are a lot of open-ended questions, and you're welcome to use AI to help with your research. We'll also ask why you chose each answer and what your thinking was.","**After the assessment**, you'll meet the head of the business department, who will ask about your background and your answers. **If you're shortlisted**, you'll move on to the offer stage. Winnie will get back to you by next Monday."]]];
+</script>
+<script>
+(function(){
+"use strict";
+
+/* ---------- 数据准备 ---------- */
+var counters = {};
+var ITEMS = RAW.map(function(a){
+  counters[a[0]] = (counters[a[0]] || 0) + 1;
+  return {id: a[0] + "-" + counters[a[0]], c:a[0], w:a[1], r:a[2], n:a[3], z:a[4], d:a[5], hot:!!a[6], src:a[7]};
+});
+var HOT = ITEMS.filter(function(it){ return it.hot; });
+var BYID = {};
+ITEMS.forEach(function(it){ BYID[it.id] = it; });
+function catName(c){ for (var i=0;i<CATS.length;i++) if (CATS[i].id===c) return CATS[i].name; return ""; }
+
+var RANKS = [
+  ["Associate",0,"助理"],["Analyst",300,"分析师"],["Specialist",800,"专员"],
+  ["Senior Specialist",1600,"高级专员"],["Team Lead",2800,"组长"],["Supervisor",4500,"主管"],
+  ["Manager",7000,"经理"],["Senior Manager",10000,"高级经理"],["Director",14000,"总监"]
+];
+var INTERVALS = [0,1,2,4,7,15];
+var ACH = [
+  ["first","🎯","首战告捷","完成第一轮练习"],
+  ["combo10","🔥","十连对","一轮里连续答对 10 题"],
+  ["streak7","📅","一周不断","连续 7 天完成每日任务"],
+  ["qmaster","❓","问句骨架通关","问句骨架类全部句子达到 3 级"],
+  ["t20","⚡","手速在线","60 秒挑战答对 20 题"],
+  ["all3","🏆","全面升级","全部句子达到 3 级"]
+];
+
+/* ---------- 存储 ---------- */
+var KEY = "thomas-interview-english-v1";
+var memCopy = null;
+function fresh(){ return {xp:0,streak:0,lastDay:null,questDay:null,best60:0,items:{},ach:{},scripts:{},settings:{size:15,voice:true,sound:true,theme:"auto"}}; }
+var STORAGE_OK = (function(){ try { localStorage.setItem("__t","1"); localStorage.removeItem("__t"); return true; } catch(e){ return false; } })();
+function load(){
+  try { var s = localStorage.getItem(KEY); if (s) return JSON.parse(s); } catch(e){}
+  return memCopy;
+}
+var mem = null;
+function save(){ persistNow(); memCopy = mem; }
+function normalize(obj){
+  var base = fresh(), k;
+  obj = obj || {};
+  for (k in base) if (!(k in obj)) obj[k] = base[k];
+  for (k in base.settings) if (!(k in obj.settings)) obj.settings[k] = base.settings[k];
+  return obj;
+}
+var LOCAL_AT_START = load();
+var S = normalize(LOCAL_AT_START);
+
+/* ---------- 双重保存：localStorage + IndexedDB ---------- */
+var IDB_NAME = "practice-store", IDB_STORE = "kv", idbP = null, idbReady = false, IDB_OK = null, PERSISTED = null;
+function idb(){
+  if (!idbP) idbP = new Promise(function(res, rej){
+    try { var r = indexedDB.open(IDB_NAME, 1);
+      r.onupgradeneeded = function(){ r.result.createObjectStore(IDB_STORE); };
+      r.onsuccess = function(){ res(r.result); }; r.onerror = function(){ rej(r.error); };
+    } catch(e){ rej(e); }
+  });
+  return idbP;
+}
+function idbGet(k){ return idb().then(function(db){ return new Promise(function(res, rej){ var q = db.transaction(IDB_STORE, "readonly").objectStore(IDB_STORE).get(k); q.onsuccess = function(){ res(q.result); }; q.onerror = function(){ rej(q.error); }; }); }); }
+function idbSet(k, v){ return idb().then(function(db){ return new Promise(function(res, rej){ var tx = db.transaction(IDB_STORE, "readwrite", {durability:"strict"}); tx.objectStore(IDB_STORE).put(v, k); tx.oncomplete = function(){ res(true); }; tx.onerror = function(){ rej(tx.error); }; }); }); }
+function persistNow(){
+  S.savedAt = Date.now();
+  var str = JSON.stringify(S);
+  mem = JSON.parse(str);
+  try { localStorage.setItem(KEY, str); } catch(e){}
+  if (idbReady) idbSet(KEY, str).then(function(){ IDB_OK = true; }, function(){ IDB_OK = false; });
+}
+function syncFromIdb(adopt, done){
+  var localT = (LOCAL_AT_START && LOCAL_AT_START.savedAt) || 0;
+  idbGet(KEY).then(function(str){
+    IDB_OK = true; var adopted = false;
+    if (str){ try { var o = JSON.parse(str); if (o && (!LOCAL_AT_START || (o.savedAt || 0) > localT)){ adopt(o); adopted = true; } } catch(e){} }
+    idbReady = true; persistNow(); done(adopted);
+  }, function(){ IDB_OK = false; done(false); });
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist().then(function(g){ PERSISTED = g; }, function(){}); } catch(e){}
+  window.addEventListener("pagehide", persistNow);
+  document.addEventListener("visibilitychange", function(){ if (document.hidden) persistNow(); });
+}
+function savedText(){
+  if (!S.savedAt) return "还没有保存过";
+  var d = new Date(S.savedAt), now = new Date(), p2 = function(n){ return (n < 10 ? "0" : "") + n; };
+  var same = d.toDateString() === now.toDateString();
+  return (same ? "今天 " : (d.getMonth() + 1) + "月" + d.getDate() + "日 ") + p2(d.getHours()) + ":" + p2(d.getMinutes()) + ":" + p2(d.getSeconds());
+}
+function browserName(){
+  var ua = navigator.userAgent || "";
+  if (/MicroMessenger/i.test(ua)) return "微信内置浏览器（可能不保存记录，请改用华为浏览器打开）";
+  if (/HuaweiBrowser/i.test(ua)) return "华为浏览器";
+  if (/HarmonyOS|ArkWeb/i.test(ua)) return "鸿蒙系统浏览器";
+  if (/Chrome/i.test(ua)) return "Chrome 内核浏览器";
+  if (/Safari/i.test(ua)) return "Safari";
+  return "其他浏览器";
+}
+function diagHtml(){
+  var ok = function(v){ return v === true ? "正常" : (v === false ? "不可用" : "检测中"); };
+  return '<div class="set-group"><h3>存储诊断</h3><p>记录同时保存在两个地方，任何一处还在都能恢复。</p>' +
+    '<p>上次保存：' + savedText() + '<br>本地存储：' + ok(STORAGE_OK) + '<br>数据库备份：' + ok(IDB_OK) +
+    '<br>持久存储：' + (PERSISTED === true ? "已开启" : (PERSISTED === false ? "浏览器未开启（不影响正常保存）" : "检测中")) +
+    '<br>浏览器：' + browserName() + '</p></div>';
+}
+
+/* ---------- 工具 ---------- */
+function $(sel){ return document.querySelector(sel); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function today(){ var d = new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset()*60000) / 86400000); }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function st(id){ return S.items[id] || {b:0,due:0,ok:0,bad:0}; }
+function rankOf(xp){ var i=0; for (var k=0;k<RANKS.length;k++) if (xp >= RANKS[k][1]) i=k; return i; }
+function toast(msg){
+  var t = $("#toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t = setTimeout(function(){ t.classList.remove("show"); }, 2600);
+}
+function applyTheme(){
+  var th = S.settings.theme;
+  if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th);
+  else document.documentElement.removeAttribute("data-theme");
+}
+
+/* ---------- 朗读 ---------- */
+var HAS_TTS = ("speechSynthesis" in window) && ("SpeechSynthesisUtterance" in window);
+function speak(text){
+  if (!HAS_TTS) return;
+  try {
+    var u = new SpeechSynthesisUtterance(text.replace(/’/g,"'").replace(/[“”]/g,"\"").replace(/…/g,"..."));
+    u.lang = "en-US"; u.rate = 0.95;
+    var vs = window.speechSynthesis.getVoices() || [];
+    var v = null;
+    for (var i=0;i<vs.length;i++){ if (/en[-_]US/i.test(vs[i].lang)) { v = vs[i]; break; } }
+    if (!v) for (var j=0;j<vs.length;j++){ if (/^en/i.test(vs[j].lang)) { v = vs[j]; break; } }
+    if (v) u.voice = v;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  } catch(e){}
+}
+if (HAS_TTS) { try { window.speechSynthesis.getVoices(); } catch(e){} }
+function sayBtn(id){ return HAS_TTS ? '<button class="speak-btn" data-act="say" data-id="'+id+'" aria-label="朗读正确说法">🔊</button>' : ""; }
+
+/* ---------- 记忆等级 ---------- */
+function grade(it, ok){
+  var s = st(it.id);
+  if (ok){ s.b = Math.min(s.b + 1, 5); s.ok++; } else { s.b = 1; s.bad++; }
+  s.due = today() + (ok ? INTERVALS[s.b] : 0);
+  S.items[it.id] = s;
+}
+function isDue(it){ var s = S.items[it.id]; return s && s.b > 0 && s.due <= today(); }
+
+/* ---------- 选题 ---------- */
+function buildQuest(size){
+  var due = shuffle(ITEMS.filter(isDue)).sort(function(a,b){ return st(a.id).b - st(b.id).b; });
+  var unseen = ITEMS.filter(function(it){ return !S.items[it.id]; })
+    .map(function(it){ return {it:it, k:it.c + Math.random()*5 - (it.hot ? 6 : 0)}; })
+    .sort(function(a,b){ return a.k - b.k; }).map(function(x){ return x.it; });
+  var reserve = Math.min(4, unseen.length);
+  var pick = due.slice(0, size - reserve);
+  pick = pick.concat(unseen.slice(0, size - pick.length));
+  var hotNeed = shuffle(HOT.filter(function(it){ return pick.indexOf(it) < 0 && st(it.id).b < 4; })).slice(0, 3);
+  if (hotNeed.length){
+    pick = pick.slice(0, Math.max(0, size - hotNeed.length)).concat(hotNeed);
+  }
+  if (pick.length < size){
+    var rest = shuffle(ITEMS.filter(function(it){ return pick.indexOf(it) < 0; }))
+      .sort(function(a,b){ return st(a.id).b - st(b.id).b; });
+    pick = pick.concat(rest.slice(0, size - pick.length));
+  }
+  return shuffle(pick);
+}
+function buildFromPool(pool, size){
+  return shuffle(shuffle(pool).sort(function(a,b){ return st(a.id).b - st(b.id).b; }).slice(0, size));
+}
+function tokens(s){ return s.split(/\s+/); }
+function canOrder(it){ var n = tokens(it.r).length; return n >= 4 && n <= 11 && it.r.indexOf("…") < 0; }
+function pickType(it){
+  if (canOrder(it) && Math.random() < 0.3) return "order";
+  return Math.random() < 0.55 ? "pick" : "judge";
+}
+
+/* ---------- 视图切换 ---------- */
+var VIEWS = ["home","worlds","play","result","book","settings","scripts","stats"];
+function show(name){
+  VIEWS.forEach(function(v){ $("#v-"+v).hidden = (v !== name); });
+  window.scrollTo(0,0);
+}
+
+/* ---------- 首页 ---------- */
+function renderHome(){
+  var t = today(), ri = rankOf(S.xp), cur = RANKS[ri], nxt = RANKS[ri+1];
+  var pct = nxt ? (S.xp - cur[1]) / (nxt[1] - cur[1]) : 1;
+  var streak = (S.lastDay !== null && S.lastDay >= t - 1) ? S.streak : 0;
+  var dueN = ITEMS.filter(isDue).length;
+  var seen = Object.keys(S.items).length;
+  var doneToday = S.questDay === t;
+  var weak = ITEMS.filter(function(it){ var s = S.items[it.id]; return s && s.bad > 0 && s.b < 3; }).length;
+  var html = '';
+  if (!STORAGE_OK) html += '<div class="warn">当前打开方式无法保存进度。练习可以做，但关掉就会清空。请换成网址或电脑打开，方法见打卡程序里的“使用说明”。</div>';
+  html += '<section class="hero">';
+  html += '<h1 class="rank-name">' + cur[0] + '</h1>';
+  html += '<p class="rank-cn">' + cur[2] + (nxt ? '。再拿 ' + (nxt[1]-S.xp) + ' XP 升到 ' + nxt[0] : '。已经到顶了') + '</p>';
+  html += '<div class="ladder" aria-hidden="true">';
+  RANKS.forEach(function(r,k){
+    var cls = k < ri ? "done" : (k === ri ? "cur" : "");
+    html += '<span class="rung ' + cls + '" style="--p:' + (k===ri ? Math.round(pct*100) : 0) + '%"></span>';
+  });
+  html += '</div>';
+  var hotDone = HOT.filter(function(it){ return st(it.id).b >= 3; }).length;
+  html += '<dl class="stats"><div><dt>连续天数</dt><dd>' + streak + '</dd></div><div><dt>总 XP</dt><dd>' + S.xp + '</dd></div><div><dt>已练句子</dt><dd>' + seen + '/' + ITEMS.length + '</dd></div><div><dt>顽固句已掌握</dt><dd>' + hotDone + '/' + HOT.length + '</dd></div></dl>';
+  html += '</section>';
+  html += '<button class="quest" data-act="quest">';
+  html += '<span class="quest-title">' + (doneToday ? '今日任务已完成' : '今日任务') + '</span>';
+  html += '<span class="quest-sub">' + (doneToday ? '可以再来一轮巩固' : S.settings.size + ' 题，其中 ' + Math.min(dueN, S.settings.size) + ' 题到了复习时间') + '</span>';
+  html += '<span class="quest-go">' + (doneToday ? '再来一轮' : '开始') + '</span>';
+  html += '</button>';
+  html += '<nav class="menu">';
+  html += row("hotround", "顽固 20 句专练", "三场都出现的错误，一次练完");
+  html += row("worlds", "分类闯关", "8 类，按优先级排列");
+  html += row("timed", "60 秒挑战", S.best60 ? "最佳 " + S.best60 + " 题" : "还没挑战过");
+  html += row("speak", "开口练", "看中文场景，出声说英文");
+  html += row("scripts", "脚本练习 4/3/2", "带计时器，练公司介绍等 8 段");
+  html += row("book", "错题本", weak ? weak + " 句待巩固" : "全部句子都在这里");
+  html += row("stats", "学习统计", "每一类的正确率和掌握情况");
+  html += row("settings", "设置与备份", "");
+  html += '</nav>';
+  html += '<section class="badges"><h2>成就</h2><div class="badge-list">';
+  ACH.forEach(function(a){
+    html += '<span class="badge' + (S.ach[a[0]] ? '' : ' locked') + '" title="' + esc(a[3]) + '">' + a[1] + ' ' + a[2] + '</span>';
+  });
+  html += '</div></section>';
+  html += '<p class="saved">上次保存：' + savedText() + '</p>';
+  $("#v-home").innerHTML = html;
+  show("home");
+}
+function row(act, name, meta){
+  return '<button class="row" data-act="' + act + '"><span class="row-name">' + name + '</span><span class="row-meta">' + esc(meta) + '</span></button>';
+}
+
+/* ---------- 分类闯关 ---------- */
+function renderWorlds(){
+  var html = '<header class="subhead"><button class="back" data-act="home">返回</button><h2>分类闯关</h2></header>';
+  html += '<p class="lead">每关 10 题，3 颗心。句子答对一次升一级，到 3 级算掌握。</p>';
+  CATS.forEach(function(c){
+    var its = ITEMS.filter(function(i){ return i.c === c.id; });
+    var m = its.filter(function(i){ return st(i.id).b >= 3; }).length;
+    var p = m / its.length;
+    var stars = p >= 0.9 ? 3 : p >= 0.6 ? 2 : p >= 0.3 ? 1 : 0;
+    html += '<button class="world" data-act="world" data-cat="' + c.id + '">';
+    html += '<span class="w-num">' + c.id + '</span>';
+    html += '<span><span class="w-name">' + esc(c.name) + '</span><span class="w-tip">' + esc(c.tip) + '</span><span class="w-bar"><i style="width:' + Math.round(p*100) + '%"></i></span></span>';
+    html += '<span class="w-meta"><span aria-label="' + stars + ' 星"><span class="w-stars">' + "★★★".slice(0,stars) + '</span><span class="w-stars-off">' + "★★★".slice(0,3-stars) + '</span></span><br>' + m + '/' + its.length + '</span>';
+    html += '</button>';
+  });
+  $("#v-worlds").innerHTML = html;
+  show("worlds");
+}
+
+/* ---------- 一轮练习 ---------- */
+var R = null;
+var timerId = null;
+function startRound(mode, items, opts){
+  opts = opts || {};
+  R = {mode:mode, items:items, i:0, hearts:opts.hearts || 0, max:opts.hearts || 0, combo:0, best:0, xp:0,
+       right:0, wrong:0, missed:[], answered:false, label:opts.label || "", rankBefore:rankOf(S.xp), end:0, cat:opts.cat || 0};
+  R.types = items.map(function(it){ return mode === "timed" ? "judge" : (mode === "speak" ? "speak" : pickType(it)); });
+  $("#hearts").hidden = !R.max;
+  $("#timer").hidden = mode !== "timed";
+  $("#prog").hidden = mode === "timed";
+  if (mode === "timed"){
+    R.end = Date.now() + 60000;
+    clearInterval(timerId);
+    timerId = setInterval(tick, 200);
+    tick();
+  }
+  show("play");
+  renderQ();
+}
+function tick(){
+  if (!R || R.mode !== "timed") return;
+  var left = Math.max(0, Math.ceil((R.end - Date.now())/1000));
+  $("#timer").textContent = left + "s";
+  if (left <= 0){ clearInterval(timerId); finishRound(); }
+}
+function addXP(n){
+  S.xp += n; R.xp += n;
+}
+function renderTop(){
+  var n = R.items.length;
+  $("#pfill").style.width = Math.round(R.i / n * 100) + "%";
+  if (R.max){
+    var h = ""; for (var k=0;k<R.max;k++) h += k < R.hearts ? "♥" : "♡";
+    $("#hearts").textContent = h;
+    $("#hearts").setAttribute("aria-label", "剩余体力 " + R.hearts);
+  }
+  $("#qcount").textContent = R.mode === "timed" ? "答对 " + R.right + " 题" : (R.label ? R.label + "，" : "") + "第 " + Math.min(R.i+1, n) + " / " + n + " 题";
+  $("#combo").textContent = R.combo >= 2 ? "连对 ×" + R.combo : "";
+}
+function renderQ(){
+  if (!R) return;
+  if (R.i >= R.items.length){
+    if (R.mode === "timed"){ R.items = R.items.concat(shuffle(ITEMS)); R.types = R.items.map(function(){ return "judge"; }); }
+    else { finishRound(); return; }
+  }
+  R.answered = false;
+  var it = R.items[R.i], type = R.types[R.i];
+  renderTop();
+  var card = $("#card"), ans = $("#answers");
+  $("#feedback").innerHTML = "";
+  card.className = "card";
+  void card.offsetWidth;
+  card.className = "card enter";
+  var head = '<div class="card-head"><b>' + headText(type) + '</b><span>' + (it.hot ? '<span class="hot-tag">★ 顽固</span> ' : '') + esc(catName(it.c)) + '</span></div>';
+  var body = '', a = '';
+  if (type === "pick"){
+    body = '<div class="card-body"><p class="situ">' + esc(it.z) + '</p></div>';
+    R.opts = shuffle([it.r, it.w, it.d]);
+    R.opts.forEach(function(o, k){ a += '<button class="opt" data-act="opt" data-k="' + k + '">' + esc(o) + '</button>'; });
+  } else if (type === "judge"){
+    R.shown = Math.random() < 0.5 ? it.w : it.r;
+    body = '<div class="card-body"><p class="situ-small">' + esc(it.z) + '</p><p class="say">' + esc(R.shown) + '</p></div>';
+    a = '<div class="judge"><button class="opt" data-act="judge" data-v="1">能直接说</button><button class="opt" data-act="judge" data-v="0">要改</button></div>';
+  } else if (type === "order"){
+    var tk = tokens(it.r), sh = shuffle(tk.map(function(t,k){ return k; }));
+    var tries = 0;
+    while (tries < 5 && sh.every(function(v,k){ return v === k; })) { sh = shuffle(sh); tries++; }
+    R.order = {tk:tk, pool:sh, slot:[]};
+    body = '<div class="card-body"><p class="situ">' + esc(it.z) + '</p></div>';
+    a = '<div class="slot" id="slot" aria-label="你拼出的句子"></div><div class="pool" id="pool"></div>' +
+        '<div class="order-tools"><button class="btn" data-act="oreset">清空</button><button class="btn primary" data-act="ocheck" id="ocheck" disabled>检查</button></div>';
+  } else if (type === "speak"){
+    body = '<div class="card-body"><p class="situ">' + esc(it.z) + '</p><p class="fb-label">你以前这样说</p><p class="was">' + esc(it.w) + '</p></div>';
+    a = '<button class="btn primary wide" data-act="reveal">我说完了，看答案</button>';
+  }
+  card.innerHTML = head + body;
+  ans.innerHTML = a;
+  if (type === "order") renderOrder();
+}
+function headText(type){
+  return {pick:"哪一句可以直接在面试里说？", judge:"这句话能直接说吗？", order:"把句子拼对", speak:"出声说出更好的说法"}[type];
+}
+function renderOrder(){
+  var o = R.order, s = '', p = '';
+  o.slot.forEach(function(k, pos){ s += '<button class="chip" data-act="unchip" data-pos="' + pos + '">' + esc(o.tk[k]) + '</button>'; });
+  o.pool.forEach(function(k){
+    var used = o.slot.indexOf(k) >= 0;
+    p += '<button class="chip' + (used ? ' used' : '') + '" data-act="chip" data-k="' + k + '"' + (used ? ' disabled' : '') + '>' + esc(o.tk[k]) + '</button>';
+  });
+  $("#slot").innerHTML = s;
+  $("#pool").innerHTML = p;
+  $("#ocheck").disabled = o.slot.length !== o.tk.length;
+}
+
+function answer(ok){
+  if (!R || R.answered) return;
+  R.answered = true;
+  var it = R.items[R.i];
+  if (R.mode === "timed"){
+    if (ok){ R.right++; R.combo++; addXP(5); }
+    else { R.wrong++; R.combo = 0; var s = st(it.id); s.bad++; s.b = Math.min(s.b, 1) || 1; s.due = today(); S.items[it.id] = s; R.missed.push(it); }
+  } else {
+    grade(it, ok);
+    if (ok){
+      R.right++; R.combo++;
+      R.best = Math.max(R.best, R.combo);
+      addXP((R.types[R.i] === "order" ? 15 : 10) + Math.min(R.combo - 1, 5) * 2);
+    } else {
+      R.wrong++; R.combo = 0; R.missed.push(it);
+      if (R.max) R.hearts--;
+    }
+  }
+  R.best = Math.max(R.best, R.combo);
+  save();
+  beep(ok);
+  renderTop();
+  if (!ok) $("#card").classList.add("shake");
+  showFeedback(it, ok);
+}
+function showFeedback(it, ok){
+  var timed = R.mode === "timed";
+  var last = R.i >= R.items.length - 1 || (R.max && R.hearts <= 0);
+  var html = '<div class="feedback ' + (ok ? 'good' : 'bad') + '">';
+  html += '<p class="verdict">' + (ok ? pickPraise() : '再看一眼') + '</p>';
+  if (!timed || !ok){
+    html += '<p class="fb-label">你以前说</p><p class="was">' + esc(it.w) + '</p>';
+    html += '<p class="fb-label">更好的说法</p><p class="fb-right"><span>' + esc(it.r) + '</span>' + sayBtn(it.id) + '</p>';
+    html += '<p class="fb-note">' + esc(it.n) + '</p>';
+  }
+  if (!timed) html += '<button class="btn primary wide" data-act="next" id="nextBtn">' + (last ? '看结果' : '下一题') + '</button>';
+  html += '</div>';
+  $("#feedback").innerHTML = html;
+  if (!timed){
+    if (S.settings.voice) speak(it.r);
+    var nb = $("#nextBtn"); if (nb) nb.focus({preventScroll:true});
+  } else {
+    var r0 = R;
+    setTimeout(function(){ if (R === r0 && !r0.done){ r0.i++; renderQ(); } }, ok ? 450 : 1700);
+  }
+}
+var PRAISE = ["对了","漂亮","就是这样","稳","可以直接说"];
+function pickPraise(){ return PRAISE[Math.floor(Math.random()*PRAISE.length)]; }
+
+function next(){
+  if (!R) return;
+  if (R.max && R.hearts <= 0){ finishRound(); return; }
+  R.i++;
+  renderQ();
+}
+
+/* 开口练 */
+function reveal(){
+  var it = R.items[R.i];
+  var html = '<div class="feedback good"><p class="fb-label">更好的说法</p><p class="fb-right"><span>' + esc(it.r) + '</span>' + sayBtn(it.id) + '</p>';
+  html += '<p class="fb-note">' + esc(it.n) + '</p>';
+  html += '<div class="rate"><button class="btn" data-act="rate" data-v="0">没说出</button><button class="btn" data-act="rate" data-v="1">差一点</button><button class="btn primary" data-act="rate" data-v="2">说对了</button></div></div>';
+  $("#answers").innerHTML = "";
+  $("#feedback").innerHTML = html;
+  if (S.settings.voice) speak(it.r);
+}
+function rate(v){
+  var it = R.items[R.i];
+  if (v === 2){ grade(it, true); R.right++; addXP(6); }
+  else if (v === 1){ var s = st(it.id); s.b = Math.max(s.b, 1); s.due = today() + 1; S.items[it.id] = s; addXP(3); R.missed.push(it); }
+  else { grade(it, false); addXP(1); R.wrong++; R.missed.push(it); }
+  save();
+  R.i++;
+  renderQ();
+}
+
+/* ---------- 结算 ---------- */
+function bumpStreak(){
+  var t = today();
+  if (S.lastDay === t) return;
+  S.streak = (S.lastDay === t - 1) ? S.streak + 1 : 1;
+  S.lastDay = t;
+}
+function checkAch(){
+  var got = [];
+  function unlock(k){ if (!S.ach[k]){ S.ach[k] = today(); got.push(k); } }
+  unlock("first");
+  if (R.best >= 10) unlock("combo10");
+  if (S.streak >= 7) unlock("streak7");
+  var q = ITEMS.filter(function(i){ return i.c === 1; });
+  if (q.every(function(i){ return st(i.id).b >= 3; })) unlock("qmaster");
+  if (R.mode === "timed" && R.right >= 20) unlock("t20");
+  if (ITEMS.every(function(i){ return st(i.id).b >= 3; })) unlock("all3");
+  return got;
+}
+function finishRound(){
+  if (!R || R.done) return;
+  R.done = true;
+  clearInterval(timerId);
+  var t = today(), bonus = 0, notes = [];
+  if (R.mode === "quest"){
+    if (S.questDay !== t){ bonus += 30; notes.push("每日任务 +30 XP"); if (R.wrong === 0){ bonus += 20; notes.push("零失误 +20 XP"); } }
+    S.questDay = t;
+    bumpStreak();
+  }
+  if (R.mode === "timed" && R.right > S.best60){ S.best60 = R.right; notes.push("刷新最佳纪录"); }
+  if (bonus) addXP(bonus);
+  var got = checkAch();
+  save();
+  var ri = rankOf(S.xp);
+  var total = R.right + R.wrong;
+  var acc = total ? Math.round(R.right / total * 100) : 0;
+  var html = '<div class="result-head"><h2>' + resultTitle(acc) + '</h2><p class="lead">' + esc(notes.join("，")) + '</p></div>';
+  if (ri > R.rankBefore) html += '<div class="rankup">升职了：' + RANKS[ri][0] + '（' + RANKS[ri][2] + '）</div>';
+  got.forEach(function(k){ ACH.forEach(function(a){ if (a[0] === k) html += '<div class="rankup">解锁成就：' + a[1] + ' ' + a[2] + '</div>'; }); });
+  html += '<dl class="result-stats"><div><dt>本轮 XP</dt><dd>+' + R.xp + '</dd></div>';
+  html += R.mode === "timed" ? '<div><dt>答对</dt><dd>' + R.right + '</dd></div>' : '<div><dt>正确率</dt><dd>' + acc + '%</dd></div>';
+  html += '<div><dt>最长连对</dt><dd>' + R.best + '</dd></div></dl>';
+  var uniq = [];
+  R.missed.forEach(function(it){ if (uniq.indexOf(it) < 0) uniq.push(it); });
+  if (uniq.length){
+    html += '<h3 class="section-title">这几句再读三遍，出声</h3>';
+    uniq.forEach(function(it){ html += entry(it); });
+  }
+  html += '<div class="actions">';
+  if (uniq.length) html += '<button class="btn primary wide" data-act="retry">只练刚才错的</button>';
+  html += '<button class="btn wide" data-act="again">再来一轮</button><button class="btn wide" data-act="home">回首页</button></div>';
+  R.lastMissed = uniq;
+  $("#v-result").innerHTML = html;
+  show("result");
+}
+function resultTitle(acc){
+  if (R.mode === "timed") return "时间到";
+  if (R.max && R.hearts <= 0) return "体力用完了";
+  if (acc === 100) return "全对";
+  if (acc >= 80) return "干得好";
+  if (acc >= 60) return "有进步空间";
+  return "明天再来";
+}
+function entry(it){
+  return '<div class="entry"><p class="entry-cat">' + (it.hot ? '★ 顽固　' : '') + esc(catName(it.c)) + (it.src === 3 ? '　第三场' : '') + '</p><p class="was">' + esc(it.w) + '</p>' +
+         '<p class="fb-right"><span>' + esc(it.r) + '</span>' + sayBtn(it.id) + '</p><p class="fb-note">' + esc(it.n) + '</p></div>';
+}
+
+/* ---------- 错题本 ---------- */
+var bookTab = "weak";
+function renderBook(){
+  var html = '<header class="subhead"><button class="back" data-act="home">返回</button><h2>错题本</h2></header>';
+  html += '<div class="tabs" role="group">';
+  html += '<button class="tab" data-act="tab" data-v="weak" aria-pressed="' + (bookTab === "weak") + '">待巩固</button>';
+  html += '<button class="tab" data-act="tab" data-v="hot" aria-pressed="' + (bookTab === "hot") + '">★ 最顽固 20 句</button>';
+  CATS.forEach(function(c){ html += '<button class="tab" data-act="tab" data-v="' + c.id + '" aria-pressed="' + (bookTab === String(c.id)) + '">' + esc(c.name) + '</button>'; });
+  html += '</div>';
+  var list;
+  if (bookTab === "weak"){
+    list = ITEMS.filter(function(it){ var s = S.items[it.id]; return s && s.bad > 0 && s.b < 3; })
+      .sort(function(a,b){ return st(a.id).b - st(b.id).b || st(b.id).bad - st(a.id).bad; });
+    if (list.length) html += '<button class="btn primary wide" data-act="review" style="margin-bottom:14px">把这些练一轮</button>';
+    else html += '<p class="empty">还没有待巩固的句子。做完今日任务，答错的会出现在这里。</p>';
+  } else if (bookTab === "hot"){
+    list = HOT.slice();
+  } else {
+    list = ITEMS.filter(function(it){ return String(it.c) === bookTab; });
+  }
+  list.forEach(function(it){ html += entry(it); });
+  $("#v-book").innerHTML = html;
+  show("book");
+}
+
+/* ---------- 设置 ---------- */
+function renderSettings(){
+  var html = '<header class="subhead"><button class="back" data-act="home">返回</button><h2>设置与备份</h2></header>';
+  html += '<div class="set-group"><h3>每日任务题数</h3><div class="seg">';
+  [10,15,20].forEach(function(n){ html += '<button class="tab" data-act="size" data-v="' + n + '" aria-pressed="' + (S.settings.size === n) + '">' + n + ' 题</button>'; });
+  html += '</div></div>';
+  html += '<div class="set-group"><h3>答题后自动朗读</h3>' + (HAS_TTS ? '' : '<p>这个浏览器不支持朗读。</p>') + '<div class="seg">';
+  html += '<button class="tab" data-act="voice" data-v="1" aria-pressed="' + !!S.settings.voice + '">开</button><button class="tab" data-act="voice" data-v="0" aria-pressed="' + !S.settings.voice + '">关</button></div></div>';
+  html += '<div class="set-group"><h3>答题音效</h3><div class="seg">';
+  html += '<button class="tab" data-act="sound" data-v="1" aria-pressed="' + !!S.settings.sound + '">开</button><button class="tab" data-act="sound" data-v="0" aria-pressed="' + !S.settings.sound + '">关</button></div></div>';
+  html += '<div class="set-group"><h3>外观</h3><div class="seg">';
+  [["auto","跟随系统"],["light","浅色"],["dark","深色"]].forEach(function(o){ html += '<button class="tab" data-act="theme" data-v="' + o[0] + '" aria-pressed="' + (S.settings.theme === o[0]) + '">' + o[1] + '</button>'; });
+  html += '</div></div>';
+  html += '<div class="set-group"><h3>备份进度</h3><p>进度只存在当前浏览器里。换手机、换浏览器或清理缓存前，先复制下面的备份码，保存到备忘录或发给自己。</p>';
+  html += '<textarea id="exportBox" readonly>' + esc(exportCode()) + '</textarea><button class="btn" data-act="copy">复制备份码</button></div>';
+  html += diagHtml();
+  html += '<div class="set-group"><h3>恢复进度</h3><p>把备份码粘贴到这里，会覆盖当前进度。</p><textarea id="importBox" placeholder="粘贴备份码"></textarea><button class="btn" data-act="import">恢复</button></div>';
+  html += '<div class="set-group"><h3>重新开始</h3><p>清空全部进度，从 Associate 重新升级。</p><button class="btn" data-act="wipe">清空进度</button></div>';
+  $("#v-settings").innerHTML = html;
+  show("settings");
+}
+function exportCode(){
+  try { return btoa(unescape(encodeURIComponent(JSON.stringify(S)))); } catch(e){ return ""; }
+}
+function importCode(code){
+  try {
+    var obj = JSON.parse(decodeURIComponent(escape(atob(code.trim()))));
+    if (typeof obj !== "object" || obj === null || typeof obj.xp !== "number") throw new Error("bad");
+    S = normalize(obj); save(); applyTheme(); toast("进度已恢复"); renderHome();
+  } catch(e){ toast("备份码无法识别，请检查是否复制完整"); }
+}
+
+/* ---------- 音效 ---------- */
+var audioCtx = null;
+function beep(ok, long){
+  if (!S.settings.sound) return;
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    var notes = ok ? [660, 880] : [300, 220];
+    if (long) notes = [523, 659, 784];
+    notes.forEach(function(f, i){
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain(), t = audioCtx.currentTime + i * 0.11;
+      o.type = "sine"; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.18, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+      o.connect(g); g.connect(audioCtx.destination); o.start(t); o.stop(t + 0.18);
+    });
+  } catch(e){}
+}
+
+/* ---------- 脚本练习 4/3/2 ---------- */
+var SC = null, scTimer = null;
+function boldHtml(t){ return esc(t).replace(/\*\*([^*]+)\*\*/g, "<mark>$1</mark>"); }
+function skeleton(paras){
+  var out = [];
+  paras.forEach(function(p){ var m = p.match(/\*\*([^*]+)\*\*/g) || []; m.forEach(function(x){ out.push(x.slice(2, -2)); }); });
+  return out;
+}
+function rounds(s){ return s[3] ? [240, 180, 120] : [90, 60, 40]; }
+function fmt(sec){ var m = Math.floor(sec / 60), r = sec % 60; return m + ":" + (r < 10 ? "0" : "") + r; }
+function renderScripts(){
+  var html = '<header class="subhead"><button class="back" data-act="home">返回</button><h2>脚本练习</h2></header>';
+  html += '<p class="lead">先出声读一遍原文，再开始计时。同一段讲三轮，每轮时间更短，计时时只显示骨架词。建议每轮都用手机录音，第三轮和第一轮对比。</p>';
+  SCRIPTS.forEach(function(s, k){
+    var n = (S.scripts && S.scripts[s[0]]) || 0, r = rounds(s);
+    html += '<button class="world" data-act="script" data-k="' + k + '"><span class="w-num">' + s[0] + '</span>';
+    html += '<span><span class="w-name">' + esc(s[1]) + '</span><span class="w-tip">' + (s[3] ? '4/3/2：4 分钟、3 分钟、2 分钟' : '限时复述：' + r.map(fmt).join('、')) + '</span></span>';
+    html += '<span class="w-meta">已练<br>' + n + ' 次</span></button>';
+  });
+  $("#v-scripts").innerHTML = html;
+  show("scripts");
+}
+function openScript(k){
+  var s = SCRIPTS[k];
+  SC = {k:k, s:s, round:0, left:0};
+  var html = '<header class="subhead"><button class="back" data-act="scripts">返回</button><h2>' + s[0] + ' ' + esc(s[1]) + '</h2></header>';
+  html += '<article class="card script-card"><div class="card-head"><b>先出声读一遍</b><span>' + esc(s[2]) + '</span></div><div class="card-body">';
+  s[4].forEach(function(p){ html += '<p class="script-p">' + boldHtml(p) + '</p>'; });
+  html += '</div></article>';
+  html += '<div class="actions"><button class="btn primary wide" data-act="sround">开始第 1 轮（' + fmt(rounds(s)[0]) + '）</button></div>';
+  $("#v-scripts").innerHTML = html;
+  show("scripts");
+}
+function startScriptRound(){
+  if (!SC) return;
+  var r = rounds(SC.s);
+  SC.left = r[SC.round];
+  SC.end = Date.now() + SC.left * 1000;
+  var html = '<header class="subhead"><button class="back" data-act="squit">退出</button><h2>第 ' + (SC.round + 1) + ' 轮，共 3 轮</h2></header>';
+  html += '<div class="big-timer" id="stimer" aria-live="off">' + fmt(SC.left) + '</div>';
+  html += '<p class="lead" style="text-align:center">看着骨架词，把整段讲出来。讲完可以提前结束。</p>';
+  html += '<div class="skeleton">' + skeleton(SC.s[4]).map(function(w){ return '<span class="chip">' + esc(w) + '</span>'; }).join('') + '</div>';
+  html += '<div class="actions"><button class="btn primary wide" data-act="sdone">我讲完了</button></div>';
+  $("#v-scripts").innerHTML = html;
+  stopScriptTimer();
+  scTimer = setInterval(function(){
+    var left = Math.max(0, Math.ceil((SC.end - Date.now()) / 1000));
+    var el = $("#stimer"); if (el) el.textContent = fmt(left);
+    if (left <= 0) endScriptRound(false);
+  }, 250);
+}
+function stopScriptTimer(){ clearInterval(scTimer); scTimer = null; }
+function endScriptRound(early){
+  stopScriptTimer();
+  if (!SC) return;
+  beep(true, !early);
+  SC.round++;
+  var r = rounds(SC.s), html;
+  if (SC.round < 3){
+    html = '<header class="subhead"><button class="back" data-act="squit">退出</button><h2>' + (early ? '这一轮讲完了' : '时间到') + '</h2></header>';
+    html += '<p class="lead">喘口气。下一轮时间更短，砍掉 Okay、like 和重复的话，只留骨架。</p>';
+    html += '<div class="actions"><button class="btn primary wide" data-act="sround">开始第 ' + (SC.round + 1) + ' 轮（' + fmt(r[SC.round]) + '）</button></div>';
+  } else {
+    S.scripts = S.scripts || {};
+    S.scripts[SC.s[0]] = (S.scripts[SC.s[0]] || 0) + 1;
+    S.xp += 20; save();
+    html = '<div class="result-head"><h2>三轮完成</h2><p class="lead">+20 XP。听一下录音：第三轮是不是停顿更少、更少 Okay 和 like？</p></div>';
+    html += '<div class="actions"><button class="btn primary wide" data-act="scripts">换一段</button><button class="btn wide" data-act="home">回首页</button></div>';
+  }
+  $("#v-scripts").innerHTML = html;
+}
+
+/* ---------- 学习统计 ---------- */
+function renderStats(){
+  var html = '<header class="subhead"><button class="back" data-act="home">返回</button><h2>学习统计</h2></header>';
+  var tOk = 0, tBad = 0;
+  ITEMS.forEach(function(it){ var s = S.items[it.id]; if (s){ tOk += s.ok; tBad += s.bad; } });
+  var hotDone = HOT.filter(function(it){ return st(it.id).b >= 3; }).length;
+  html += '<dl class="stats" style="margin-bottom:18px"><div><dt>总答题</dt><dd>' + (tOk + tBad) + '</dd></div><div><dt>总正确率</dt><dd>' + (tOk + tBad ? Math.round(tOk / (tOk + tBad) * 100) + '%' : '-') + '</dd></div><div><dt>顽固 20 句</dt><dd>' + hotDone + '/20</dd></div></dl>';
+  html += '<p class="lead">掌握 = 这句答对后升到 3 级以上。正确率最低的一类，就是下周的重点。</p>';
+  CATS.forEach(function(c){
+    var its = ITEMS.filter(function(i){ return i.c === c.id; });
+    var ok = 0, bad = 0, seen = 0, m = 0;
+    its.forEach(function(it){ var s = S.items[it.id]; if (s){ ok += s.ok; bad += s.bad; seen++; if (s.b >= 3) m++; } });
+    var acc = ok + bad ? Math.round(ok / (ok + bad) * 100) : null;
+    html += '<div class="stat-row"><div class="stat-name">' + c.id + ' ' + esc(c.name) + '</div>';
+    html += '<div class="stat-meta">已练 ' + seen + '/' + its.length + '，掌握 ' + m + '，正确率 ' + (acc === null ? '-' : acc + '%') + '</div>';
+    html += '<div class="w-bar"><i style="width:' + Math.round(m / its.length * 100) + '%"></i></div></div>';
+  });
+  var sc = S.scripts || {}, keys = Object.keys(sc);
+  html += '<h3 class="section-title" style="margin-top:18px">脚本练习次数</h3><p class="lead">' + (keys.length ? keys.sort().map(function(k){ return k + '：' + sc[k] + ' 次'; }).join('，') : '还没练过') + '</p>';
+  $("#v-stats").innerHTML = html;
+  show("stats");
+}
+
+/* ---------- 事件 ---------- */
+var ACT = {
+  home: function(){ R = null; clearInterval(timerId); stopScriptTimer(); renderHome(); },
+  quest: function(){ startRound("quest", buildQuest(S.settings.size), {hearts:5, label:"今日任务"}); },
+  worlds: renderWorlds,
+  world: function(b){
+    var c = +b.getAttribute("data-cat");
+    startRound("world", buildFromPool(ITEMS.filter(function(i){ return i.c === c; }), 10), {hearts:3, label:catName(c), cat:c});
+  },
+  timed: function(){ startRound("timed", shuffle(ITEMS), {label:"60 秒挑战"}); },
+  speak: function(){
+    var pool = ITEMS.filter(function(it){ return !S.items[it.id] || st(it.id).b < 4; });
+    if (pool.length < 10) pool = ITEMS;
+    startRound("speak", buildFromPool(pool, 10), {label:"开口练"});
+  },
+  book: function(){ renderBook(); },
+  settings: renderSettings,
+  quit: function(){ if (R && (R.right + R.wrong) > 0) { save(); } ACT.home(); },
+  opt: function(b){
+    if (R.answered) return;
+    var k = +b.getAttribute("data-k"), it = R.items[R.i], ok = R.opts[k] === it.r;
+    var btns = document.querySelectorAll("#answers .opt");
+    for (var i=0;i<btns.length;i++){
+      btns[i].disabled = true;
+      if (R.opts[i] === it.r) btns[i].classList.add("is-right");
+      else if (i === k) btns[i].classList.add("is-wrong");
+    }
+    answer(ok);
+  },
+  judge: function(b){
+    if (R.answered) return;
+    var it = R.items[R.i], saidOk = b.getAttribute("data-v") === "1", isRight = R.shown === it.r;
+    var ok = saidOk === isRight;
+    var btns = document.querySelectorAll("#answers .opt");
+    for (var i=0;i<btns.length;i++){
+      btns[i].disabled = true;
+      var v = btns[i].getAttribute("data-v") === "1";
+      if (v === isRight) btns[i].classList.add("is-right");
+      else if (btns[i] === b) btns[i].classList.add("is-wrong");
+    }
+    answer(ok);
+  },
+  chip: function(b){ if (R.answered) return; R.order.slot.push(+b.getAttribute("data-k")); renderOrder(); },
+  unchip: function(b){ if (R.answered) return; R.order.slot.splice(+b.getAttribute("data-pos"), 1); renderOrder(); },
+  oreset: function(){ if (R.answered) return; R.order.slot = []; renderOrder(); },
+  ocheck: function(){
+    if (R.answered) return;
+    var o = R.order, built = o.slot.map(function(k){ return o.tk[k]; }).join(" ");
+    var ok = built === o.tk.join(" ");
+    var chips = document.querySelectorAll("#answers .chip, #answers .btn");
+    for (var i=0;i<chips.length;i++) chips[i].disabled = true;
+    $("#pool").hidden = true;
+    document.querySelector("#answers .order-tools").hidden = true;
+    $("#slot").classList.add(ok ? "is-right" : "is-wrong");
+    answer(ok);
+  },
+  next: next,
+  reveal: reveal,
+  rate: function(b){ rate(+b.getAttribute("data-v")); },
+  say: function(b){ var it = BYID[b.getAttribute("data-id")]; if (it) speak(it.r); },
+  retry: function(){ var m = R && R.lastMissed; if (m && m.length) startRound("world", shuffle(m), {hearts:0, label:"错题重练"}); },
+  again: function(){
+    if (!R) return ACT.home();
+    var mode = R.mode, cat = R.cat;
+    if (mode === "quest") ACT.quest();
+    else if (mode === "timed") ACT.timed();
+    else if (mode === "speak") ACT.speak();
+    else if (cat) ACT.world({getAttribute:function(){ return cat; }});
+    else ACT.review();
+  },
+  review: function(){
+    var pool = ITEMS.filter(function(it){ var s = S.items[it.id]; return s && s.bad > 0 && s.b < 3; });
+    if (!pool.length) pool = ITEMS;
+    startRound("world", buildFromPool(pool, 15), {hearts:0, label:"错题重练"});
+  },
+  tab: function(b){ bookTab = b.getAttribute("data-v"); renderBook(); },
+  hotround: function(){ startRound("world", shuffle(HOT), {hearts:0, label:"顽固 20 句"}); },
+  scripts: function(){ stopScriptTimer(); renderScripts(); },
+  script: function(b){ openScript(+b.getAttribute("data-k")); },
+  sround: function(){ startScriptRound(); },
+  sdone: function(){ endScriptRound(true); },
+  squit: function(){ stopScriptTimer(); renderScripts(); },
+  stats: function(){ renderStats(); },
+  sound: function(b){ S.settings.sound = b.getAttribute("data-v") === "1"; save(); renderSettings(); },
+  size: function(b){ S.settings.size = +b.getAttribute("data-v"); save(); renderSettings(); },
+  voice: function(b){ S.settings.voice = b.getAttribute("data-v") === "1"; save(); renderSettings(); },
+  theme: function(b){ S.settings.theme = b.getAttribute("data-v"); save(); applyTheme(); renderSettings(); },
+  copy: function(){
+    var box = $("#exportBox"), txt = box.value;
+    function fallback(){ box.focus(); box.select(); try { document.execCommand("copy"); toast("已复制"); } catch(e){ toast("请长按文本框手动复制"); } }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function(){ toast("已复制"); }, fallback);
+    else fallback();
+  },
+  "import": function(){ var v = $("#importBox").value; if (v.trim()) importCode(v); },
+  wipe: function(){ if (window.confirm("确定清空全部进度吗？这一步无法撤销。")){ S = fresh(); save(); applyTheme(); toast("已清空"); renderHome(); } }
+};
+document.addEventListener("click", function(e){
+  var b = e.target.closest("[data-act]");
+  if (!b || b.disabled) return;
+  var fn = ACT[b.getAttribute("data-act")];
+  if (fn) fn(b, e);
+});
+document.addEventListener("keydown", function(e){
+  if (!R || $("#v-play").hidden) return;
+  if (!R.answered && /^[1-3]$/.test(e.key)){
+    var btns = document.querySelectorAll("#answers .opt");
+    var b = btns[+e.key - 1]; if (b) b.click();
+  }
+});
+
+applyTheme();
+renderHome();
+syncFromIdb(function(o){ S = normalize(o); }, function(adopted){
+  if (adopted){ applyTheme(); renderHome(); toast("已从数据库备份恢复进度"); }
+  else if (!$("#v-home").hidden) renderHome();
+});
+if (/^https?:$/.test(location.protocol)){
+  try {
+    var lm = document.createElement("link"); lm.rel = "manifest"; lm.href = "manifest-quest.webmanifest"; document.head.appendChild(lm);
+    var li = document.createElement("link"); li.rel = "apple-touch-icon"; li.href = "icon-quest-180.png"; document.head.appendChild(li);
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+  } catch(e){}
+}
+})();
+</script>
+</body>
+</html>
